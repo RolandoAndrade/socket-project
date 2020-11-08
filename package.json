@@ -7,7 +7,8 @@
     "build": "webpack",
     "build:watch": "webpack --watch",
     "start": "http-server dist",
-    "serve": "webpack serve"
+    "serve": "webpack serve",
+    "format": "prettier --write \"./src/**/*.ts\" \"./test/**/*.ts\" \"./public/**/*.html\""
   },
   "jest": {
     "moduleFileExtensions": [
