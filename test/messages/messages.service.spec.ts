@@ -13,7 +13,6 @@ describe("messages service test", ()=>{
 
     it("send hello", ()=>{
         const r = service.sendHello("john");
-        console.log(r);
         expect(r).toBeDefined();
     })
 })

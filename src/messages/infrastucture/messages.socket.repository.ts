@@ -12,7 +12,13 @@ export class MessagesSocketRepository implements MessageRepository{
     private readonly socket: SocketIOClient.Socket;
 
     constructor() {
-        this.socket = socketIo(SERVER_URL);
+        this.socket = socketIo(SERVER_URL).connect();
+        this.socket.on("res_code", (data)=>{
+            console.log('entro', data);
+        });
+        this.socket.on('connect', () => {
+            console.log('Successfully connected!');
+        });
     }
 
     checksum(md5message: string): ChecksumResponse {
@@ -33,9 +39,6 @@ export class MessagesSocketRepository implements MessageRepository{
 
     sendHello(username: string): HelloResponse {
         this.socket.emit("helloiam", username);
-        this.socket.on("res_code", (data)=>{
-            console.log('entro', data);
-        });
         return {}
     }
 
