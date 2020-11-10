@@ -1,46 +1,38 @@
 import {MessageRepository} from "../domain/message.repository";
-import {ChecksumResponse} from "../../responses/domain/checksum-response";
-import {MessageResponse} from "../../responses/domain/message-response";
-import {LengthResponse} from "../../responses/domain/length-response";
-import {ByeResponse} from "../../responses/domain/bye-response";
-import {HelloResponse} from "../../responses/domain/hello-response";
 import {Socket} from "net";
+import {EventBus} from "../../shared/event-bus/domain/event-bus";
+import {EventBusMessages} from "../../shared/event-bus/domain/event-bus-messages";
 
 const HOST = '10.2.126.2'
 const PORT = 19876;
 
 
 export class MessagesSocketRepository implements MessageRepository{
-
-
-    constructor(private readonly socket: Socket) {
-        this.socket.on("data", (data)=>{
-            console.log("Epa: ", data.toString())
-        })
+    constructor(private readonly socket: Socket, private readonly eventBus: EventBus) {
+        this.socket.on("data", (data)=>
+            eventBus.publish(EventBusMessages.MESSAGE_RECEIVED, data.toString()))
     }
 
-    checksum(md5message: string): ChecksumResponse {
-        return undefined;
+    async checksum(md5message: string): Promise<void> {
+
     }
 
-    getMessage(udpPort: number): MessageResponse {
-        return undefined;
+    async getMessage(udpPort: number): Promise<void> {
+
     }
 
-    getMessageLength(): LengthResponse {
-        return undefined;
+    async getMessageLength(): Promise<void> {
+
     }
 
-    sendBye(): ByeResponse {
-        return undefined;
+    async sendBye(): Promise<void> {
+
     }
 
-    async sendHello(username: string): Promise<HelloResponse> {
-        return new Promise((resolve, reject)=>{
-            this.socket.write(`helloiam ${username}`, (res)=>{
-                resolve({})
-            });
+    async sendHello(username: string): Promise<void> {
+        await new Promise((resolve, reject)=>{
+            this.socket.write(`helloiam ${username}`);
+            resolve()
         });
     }
-
 }
