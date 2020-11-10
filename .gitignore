@@ -21,3 +21,4 @@ yarn-error.log*
 
 # Project exclude paths
 /dist/
+/apps/server/public
