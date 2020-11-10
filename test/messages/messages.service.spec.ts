@@ -18,7 +18,7 @@ describe("messages service test", () => {
         eventBus = new GenericEventBus();
         eventBus.publish = jest.fn();
         repository = new MessagesSocketRepository(socket, eventBus);
-        service = new MessagesService(repository);
+        service = new MessagesService(repository, undefined);
     });
 
     it("send hello", async () => {
@@ -26,7 +26,7 @@ describe("messages service test", () => {
         await new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve();
-            }, 300);
+            }, 1000);
         });
         expect(eventBus.publish).toHaveBeenCalled();
     });

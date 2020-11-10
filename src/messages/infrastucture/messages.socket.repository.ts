@@ -3,9 +3,6 @@ import { Socket } from "net";
 import { EventBus } from "../../shared/event-bus/domain/event-bus";
 import { EventBusMessages } from "../../shared/event-bus/domain/event-bus-messages";
 
-const HOST = "10.2.126.2";
-const PORT = 19876;
-
 export class MessagesSocketRepository implements MessageRepository {
     constructor(private readonly socket: Socket, private readonly eventBus: EventBus) {
         this.socket.on("data", (data) => eventBus.publish(EventBusMessages.MESSAGE_RECEIVED, data.toString()));

@@ -5,7 +5,7 @@ export async function openConnection(port: number, host: string): Promise<Socket
 
     return new Promise((resolve, reject) => {
         socket.connect(port, host, () => {
-            console.log("Connected");
+            console.info("Connected");
             return resolve(socket);
         });
     });
