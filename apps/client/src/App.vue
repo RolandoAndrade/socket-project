@@ -1,22 +1,18 @@
 <template>
   <v-app>
-    <layout>
+    <v-main>
       <router-view></router-view>
-    </layout>
+    </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
-import Layout from "@/modules/shared/layout/components/Layout.vue";
 
 export default Vue.extend({
   name: 'App',
 
   components: {
-    Layout,
-    HelloWorld,
   },
 
   data: () => ({

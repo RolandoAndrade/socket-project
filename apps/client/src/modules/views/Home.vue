@@ -1,11 +1,7 @@
 <template>
-    <v-row class="gradient-primary full-bg ma-0 pa-0" align="center" justify="center" no-gutters>
+    <v-container>
 
-      <v-col class="text-center">
-        <div class="main-title">IA en Venezuela</div>
-        <div class="overline font-weight-light white--text">INVESTIGANDO LA INTELIGENCIA ARTIFICIAL</div>
-      </v-col>
-    </v-row>
+    </v-container>
 </template>
 
 <script lang="ts">

@@ -6,7 +6,8 @@ import {Injectable} from "@nestjs/common";
 
 @Injectable()
 export class MessagesSocketRepository implements MessageRepository {
-    constructor(private readonly socket: Socket, private readonly eventBus: EventBus) {
+    constructor(private readonly socket: Socket,
+                private readonly eventBus: EventBus) {
         this.socket.on("data", (data) => eventBus.publish(EventBusMessages.MESSAGE_RECEIVED, data.toString()));
     }
 
