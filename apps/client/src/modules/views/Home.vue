@@ -7,13 +7,18 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import {io, Socket} from "socket.io-client";
 
 @Component({
   name: "home",
 })
 
 export default class Home extends Vue {
+  private socket!: Socket;
 
+  async mounted(){
+    this.socket = io('ws://localhost:3000')
+  }
 }
 
 </script>

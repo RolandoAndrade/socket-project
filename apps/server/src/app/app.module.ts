@@ -6,14 +6,15 @@ import {MessagesService} from "../messages/application/messages.service";
 import {MessageRepository} from "../messages/domain/message.repository";
 import {MessagesSocketRepository} from "../messages/infrastucture/messages.socket.repository";
 import {openConnection} from "../messages/infrastucture/socket-connection";
+import {Socket} from "net";
 const HOST = "10.2.126.2";
 const PORT = 19876;
 
 @Module({
     imports: [
-        ServeStaticModule.forRoot({
+        /*ServeStaticModule.forRoot({
             rootPath: `public`
-        })
+        })*/
     ],
     controllers: [],
     providers: [
@@ -24,11 +25,11 @@ const PORT = 19876;
         },
         {
             provide: MessageRepository,
-            useFactory: async (eventBus: EventBus)=>{
-                const socket = await openConnection(PORT, HOST);
-                return new MessagesSocketRepository(socket, eventBus);
-            },
-            inject: [EventBus]
+            useClass: MessagesSocketRepository
+        },
+        {
+            provide: Socket,
+            useFactory: async ()=> openConnection(PORT, HOST)
         }
     ]
 })
