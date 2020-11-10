@@ -30,22 +30,3 @@ setUp();
 */
 
 import * as path from "path";
-
-const app = require('express')();
-const http = require('http').createServer(app);
-const express = require('express');
-const io = require('socket.io')(http);
-
-app.use('/public',express.static(path.resolve(__dirname + '/../public')));
-
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname + '/../public/index.html'));
-});
-
-io.on('connection', (socket) => {
-    console.log('a user connected');
-});
-
-http.listen(3000, () => {
-    console.log('listening on *:3000');
-});

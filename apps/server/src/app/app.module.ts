@@ -1,5 +1,6 @@
 import { Module } from "@nestjs/common";
 import {ServeStaticModule} from "@nestjs/serve-static";
+import {AppGateway} from "./gateway";
 
 
 @Module({
@@ -9,7 +10,7 @@ import {ServeStaticModule} from "@nestjs/serve-static";
         })
     ],
     controllers: [],
-    providers: []
+    providers: [AppGateway]
 })
 export class AppModule {
     static port: number | string;
