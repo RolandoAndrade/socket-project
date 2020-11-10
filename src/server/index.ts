@@ -1,4 +1,4 @@
-import {MessagesService} from "./messages/application/messages.service";
+/*import {MessagesService} from "./messages/application/messages.service";
 import {MessagesSocketRepository} from "./messages/infrastucture/messages.socket.repository";
 import {openConnection} from "./messages/infrastucture/socket-connection";
 import {GenericEventBus} from "./shared/event-bus/infrastructure/generic-event-bus";
@@ -27,4 +27,18 @@ async function setUp(){
 
 setUp();
 
+*/
 
+const app = require('express')();
+const http = require('http').createServer(app);
+const express = require('express');
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+    res.sendFile('public/index.html');
+});
+
+http.listen(3000, () => {
+    console.log('listening on *:3000');
+});

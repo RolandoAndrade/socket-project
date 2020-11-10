@@ -1,9 +1,9 @@
-import { MessagesService } from "../../src/messages/application/messages.service";
-import { MessageRepository } from "../../src/messages/domain/message.repository";
-import { MessagesSocketRepository } from "../../src/messages/infrastucture/messages.socket.repository";
-import { openConnection } from "../../src/messages/infrastucture/socket-connection";
-import { EventBus } from "../../src/shared/event-bus/domain/event-bus";
-import { GenericEventBus } from "../../src/shared/event-bus/infrastructure/generic-event-bus";
+import { MessagesService } from "../../src/server/messages/application/messages.service";
+import { MessageRepository } from "../../src/server/messages/domain/message.repository";
+import { MessagesSocketRepository } from "../../src/server/messages/infrastucture/messages.socket.repository";
+import { openConnection } from "../../src/server/messages/infrastucture/socket-connection";
+import { EventBus } from "../../src/server/shared/event-bus/domain/event-bus";
+import { GenericEventBus } from "../../src/server/shared/event-bus/infrastructure/generic-event-bus";
 import { Socket } from "net";
 
 jest.setTimeout(10000);
