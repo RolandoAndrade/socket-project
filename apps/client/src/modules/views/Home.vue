@@ -1,13 +1,15 @@
 <template>
     <v-container>
-
+      <v-btn @click="()=>sendHello()">HOLA</v-btn>
     </v-container>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import {io, Socket} from "socket.io-client";
+import {Commands} from "../../../../server/src/messages/domain/commands";
+import io from 'socket.io-client';
+import Socket = SocketIOClient.Socket;
 
 @Component({
   name: "home",
@@ -16,8 +18,26 @@ import {io, Socket} from "socket.io-client";
 export default class Home extends Vue {
   private socket!: Socket;
 
-  async mounted(){
+  private s!: any
+
+  created(){
     this.socket = io('ws://localhost:3000')
+    /*this.socket.on('connect', function(data) {
+
+    });
+    this.socket.on('disconnect', function () {
+
+    });
+    this.socket.on('reconnect', function () {
+
+    });
+    this.socket.on('reconnect_error', function () {
+
+    });*/
+  }
+
+  sendHello(){
+    this.socket.emit(Commands.SEND_HELLO, "rjandrade.17")
   }
 }
 

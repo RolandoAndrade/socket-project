@@ -1,9 +1,7 @@
 import { MessageRepository } from "../domain/message.repository";
 import {Receiver} from "../../shared/event-bus/domain/receiver";
 import {EventBusMessages} from "../../shared/event-bus/domain/event-bus-messages";
-import {ResponseHandler} from "../../responses/domain/response-handler";
 import {Injectable, Logger} from "@nestjs/common";
-import {EventBus} from "../../shared/event-bus/domain/event-bus";
 import {
     OnGatewayConnection,
     OnGatewayDisconnect,
