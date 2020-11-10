@@ -7,7 +7,7 @@ module.exports = {
     mode: 'production',
 
     // entry files
-    entry: './src/index.ts',
+    entry: './src',
 
     // output bundles (location)
     output: {
@@ -46,6 +46,6 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 9000
+        port: 8080
     }
 };

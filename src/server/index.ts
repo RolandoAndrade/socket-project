@@ -29,14 +29,21 @@ setUp();
 
 */
 
+import * as path from "path";
+
 const app = require('express')();
 const http = require('http').createServer(app);
 const express = require('express');
+const io = require('socket.io')(http);
 
-app.use(express.static('public'));
+app.use(express.static('dist/public'));
 
 app.get('/', (req, res) => {
-    res.sendFile('public/index.html');
+    res.sendFile(path.resolve(__dirname + '/../../public/index.html'));
+});
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
 });
 
 http.listen(3000, () => {
