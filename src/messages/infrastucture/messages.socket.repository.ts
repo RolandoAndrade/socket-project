@@ -4,20 +4,21 @@ import {MessageResponse} from "../../responses/domain/message-response";
 import {LengthResponse} from "../../responses/domain/length-response";
 import {ByeResponse} from "../../responses/domain/bye-response";
 import {HelloResponse} from "../../responses/domain/hello-response";
-import * as socketIo from 'socket.io-client';
-const SERVER_URL = 'http://10.2.126.2:19876';
+import {Socket} from "net";
+
+const HOST = '10.2.126.2'
+const PORT = 19876;
 
 
 export class MessagesSocketRepository implements MessageRepository{
-    private readonly socket: SocketIOClient.Socket;
+    private readonly socket: Socket;
+    private isConnected: boolean = false;
 
     constructor() {
-        this.socket = socketIo(SERVER_URL).connect();
-        this.socket.on("res_code", (data)=>{
-            console.log('entro', data);
-        });
-        this.socket.on('connect', () => {
-            console.log('Successfully connected!');
+
+        this.socket = new Socket();
+        this.socket.connect(PORT, '127.0.0.1', ()=>{
+            console.log("Connected");
         });
     }
 
@@ -39,6 +40,7 @@ export class MessagesSocketRepository implements MessageRepository{
 
     sendHello(username: string): HelloResponse {
         this.socket.emit("helloiam", username);
+        console.log(this.socket)
         return {}
     }
 

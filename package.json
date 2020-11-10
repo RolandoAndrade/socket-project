@@ -28,12 +28,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/socket.io": "^2.1.11",
-    "@types/socket.io-client": "^1.4.34",
     "copy-webpack-plugin": "^6.3.0",
     "http-server": "^0.12.3",
     "prettier": "^2.1.1",
-    "socket.io-client": "^3.0.1",
     "ts-jest": "^26.3.0",
     "ts-loader": "^8.0.10",
     "typescript": "^4.0.5",
