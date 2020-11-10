@@ -1,25 +1,20 @@
 import {MessagesService} from "../../src/messages/application/messages.service";
 import {MessageRepository} from "../../src/messages/domain/message.repository";
 import {MessagesSocketRepository} from "../../src/messages/infrastucture/messages.socket.repository";
+import {openConnection} from "../../src/messages/infrastucture/socket-connection";
 
-
-jest.setTimeout(30000);
+jest.setTimeout(10000);
 describe("messages service test", ()=>{
     let service: MessagesService;
     let repository: MessageRepository;
 
     beforeAll(async ()=>{
-        repository = new MessagesSocketRepository();
+        const socket = await openConnection(19876, '127.0.0.1');
+        repository = new MessagesSocketRepository(socket);
         service = new MessagesService(repository);
-        return new Promise((resolve)=>{
-            setTimeout(()=>{
-                resolve(true)
-            }, 10000)
-        })
     })
 
     it("send hello", async (done)=>{
-        expect.assertions(1);
-        service.sendHello("john");
+        await service.sendHello("usuario_1");
     })
 })

@@ -11,15 +11,11 @@ const PORT = 19876;
 
 
 export class MessagesSocketRepository implements MessageRepository{
-    private readonly socket: Socket;
-    private isConnected: boolean = false;
 
-    constructor() {
-
-        this.socket = new Socket();
-        this.socket.connect(PORT, '127.0.0.1', ()=>{
-            console.log("Connected");
-        });
+    constructor(private readonly socket: Socket) {
+        this.socket.on("data", (data)=>{
+            console.log("Epa: ", data.toString())
+        })
     }
 
     checksum(md5message: string): ChecksumResponse {
@@ -38,10 +34,12 @@ export class MessagesSocketRepository implements MessageRepository{
         return undefined;
     }
 
-    sendHello(username: string): HelloResponse {
-        this.socket.emit("helloiam", username);
-        console.log(this.socket)
-        return {}
+    async sendHello(username: string): Promise<HelloResponse> {
+        return new Promise((resolve, reject)=>{
+            this.socket.write(`helloiam ${username}`, (res)=>{
+                resolve({})
+            });
+        });
     }
 
 }

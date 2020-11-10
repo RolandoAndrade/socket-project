@@ -5,7 +5,7 @@ import {ChecksumResponse} from "../../responses/domain/checksum-response";
 import {ByeResponse} from "../../responses/domain/bye-response";
 
 export interface MessageRepository{
-    sendHello(username: string): HelloResponse;
+    sendHello(username: string): Promise<HelloResponse>;
     getMessageLength(): LengthResponse;
     getMessage(udpPort: number): MessageResponse;
     checksum(md5message: string): ChecksumResponse;
