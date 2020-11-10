@@ -2,7 +2,9 @@ import { MessageRepository } from "../domain/message.repository";
 import { Socket } from "net";
 import { EventBus } from "../../shared/event-bus/domain/event-bus";
 import { EventBusMessages } from "../../shared/event-bus/domain/event-bus-messages";
+import {Injectable} from "@nestjs/common";
 
+@Injectable()
 export class MessagesSocketRepository implements MessageRepository {
     constructor(private readonly socket: Socket, private readonly eventBus: EventBus) {
         this.socket.on("data", (data) => eventBus.publish(EventBusMessages.MESSAGE_RECEIVED, data.toString()));

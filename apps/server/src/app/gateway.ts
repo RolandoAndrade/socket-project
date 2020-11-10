@@ -15,7 +15,7 @@ export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
     @WebSocketServer() server: Server;
     private logger: Logger = new Logger('AppGateway');
 
-    @SubscribeMessage('msgToServer')
+    @SubscribeMessage('command')
     handleMessage(client: Socket, payload: string): void {
         this.server.emit('msgToClient', payload);
     }
