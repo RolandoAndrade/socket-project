@@ -1,3 +1,1 @@
-export interface HelloResponse{
-
-}
+export interface HelloResponse {}

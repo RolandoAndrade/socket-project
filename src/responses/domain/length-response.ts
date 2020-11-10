@@ -1,3 +1,1 @@
-export interface LengthResponse{
-
-}
+export interface LengthResponse {}

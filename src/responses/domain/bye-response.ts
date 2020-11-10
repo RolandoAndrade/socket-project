@@ -1,3 +1,1 @@
-export interface ByeResponse{
-
-}
+export interface ByeResponse {}

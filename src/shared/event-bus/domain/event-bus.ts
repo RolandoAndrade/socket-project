@@ -1,4 +1,4 @@
-import {Receiver} from "./receiver";
+import { Receiver } from "./receiver";
 
 export interface EventBus {
     subscribe(topic: string, receiver: Receiver): void;

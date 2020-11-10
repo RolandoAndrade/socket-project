@@ -1,4 +1,4 @@
-export interface MessageRepository{
+export interface MessageRepository {
     sendHello(username: string): Promise<void>;
     getMessageLength(): Promise<void>;
     getMessage(udpPort: number): Promise<void>;

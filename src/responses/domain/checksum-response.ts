@@ -1,3 +1,1 @@
-export interface ChecksumResponse{
-
-}
+export interface ChecksumResponse {}

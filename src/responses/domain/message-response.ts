@@ -1,3 +1,1 @@
-export interface MessageResponse{
-
-}
+export interface MessageResponse {}
