@@ -36,7 +36,8 @@ const http = require('http').createServer(app);
 const express = require('express');
 const io = require('socket.io')(http);
 
-app.use(express.static('dist/public'));
+app.use('/public',express.static(path.resolve(__dirname + '/../../public')));
+app.use('/src/client',express.static(path.resolve(__dirname + '/../../src/client')));
 
 app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname + '/../../public/index.html'));

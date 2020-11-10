@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "test": "jest",
-    "build": "mkdirp dist && cp -r ./public ./dist && tsc",
+    "build": "mkdirp dist && cp -r ./public ./dist && tsc -m es6",
     "build:watch": "mkdirp dist && cp -r ./public ./dist && tsc --watch",
     "start": "node dist/src/server/index.js",
     "serve": "webpack serve",
@@ -28,19 +28,21 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/types": "^7.12.6",
     "copy-webpack-plugin": "^6.3.0",
     "http-server": "^0.12.3",
+    "jest": "^26.4.2",
     "prettier": "^2.1.1",
     "ts-jest": "^26.3.0",
     "ts-loader": "^8.0.10",
     "typescript": "^4.0.5",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0",
-    "jest": "^26.4.2"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "socket.io": "^3.0.1"
+    "socket.io": "^3.0.1",
+    "socket.io-client": "^3.0.1"
   }
 }

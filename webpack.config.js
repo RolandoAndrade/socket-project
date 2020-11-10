@@ -7,12 +7,11 @@ module.exports = {
     mode: 'production',
 
     // entry files
-    entry: './src',
+    entry: path.resolve( __dirname, 'src' ),
 
     // output bundles (location)
     output: {
-        path: path.resolve( __dirname, 'dist' ),
-        filename: 'main.js',
+        path: path.resolve( __dirname, 'dist' )
     },
 
     // file resolutions
