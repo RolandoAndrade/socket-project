@@ -22,7 +22,7 @@ describe("messages service test", () => {
     });
 
     it("send hello", async () => {
-        await service.sendHello("usuario_1");
+        await service.sendHello(undefined, "usuario_1");
         await new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve();

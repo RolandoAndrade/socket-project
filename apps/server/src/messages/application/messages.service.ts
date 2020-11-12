@@ -11,6 +11,7 @@ import {
 } from "@nestjs/websockets";
 import {Server, Socket} from "socket.io";
 import {Commands} from "../domain/commands";
+import {EventBus} from "../../shared/event-bus/domain/event-bus";
 
 @WebSocketGateway()
 @Injectable()
@@ -19,7 +20,10 @@ export class MessagesService implements Receiver, OnGatewayInit, OnGatewayConnec
     @WebSocketServer() server: Server;
     private readonly logger: Logger = new Logger("MessagesService")
 
-    constructor(private readonly messagesRepository: MessageRepository) {}
+    constructor(private readonly messagesRepository: MessageRepository,
+                private readonly eventBus: EventBus) {
+        this.eventBus.subscribe(EventBusMessages.MESSAGE_RECEIVED, this);
+    }
 
 
     @SubscribeMessage(Commands.SEND_HELLO)
@@ -49,9 +53,10 @@ export class MessagesService implements Receiver, OnGatewayInit, OnGatewayConnec
     }
 
     receive(topic: string, subject: string) {
-        this.logger.log("Se ha recibido una respuesta")
+        this.logger.log(`Se ha recibido una respuesta`)
+        this.logger.debug(subject);
         if(topic === EventBusMessages.MESSAGE_RECEIVED){
-            this.server.write(subject);
+            this.server.emit(topic, subject);
         }
     }
 

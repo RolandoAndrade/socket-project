@@ -1,6 +1,7 @@
 <template>
     <v-container>
       <v-btn @click="()=>sendHello()">HOLA</v-btn>
+      <v-snackbar v-model="showMessage" :color="color" top right>{{message}}</v-snackbar>
     </v-container>
 </template>
 
@@ -10,6 +11,8 @@ import Component from "vue-class-component";
 import {Commands} from "../../../../server/src/messages/domain/commands";
 import io from 'socket.io-client';
 import Socket = SocketIOClient.Socket;
+import {EventBusMessages} from "../../../../server/src/shared/event-bus/domain/event-bus-messages";
+import {MessageResponse} from "@/modules/responses/domain/response";
 
 @Component({
   name: "home",
@@ -18,22 +21,33 @@ import Socket = SocketIOClient.Socket;
 export default class Home extends Vue {
   private socket!: Socket;
 
-  private s!: any
+  private color: string = '';
+  private showMessage: boolean = false;
+  private message: string = '';
+
+
+  showResponse(response: MessageResponse){
+    console.log(response)
+    if(!response.isFailed()){
+      this.message = response.getStatus() + response.getMessage();
+      if(response.isSuccess()){
+        this.color = "blue";
+      }
+      else {
+        this.color = "error";
+      }
+    }else {
+      this.color='error';
+      this.message = "Error: Server didn't response"
+    }
+    this.showMessage = true;
+  }
 
   created(){
     this.socket = io('ws://localhost:3000')
-    /*this.socket.on('connect', function(data) {
-
+    this.socket.on(EventBusMessages.MESSAGE_RECEIVED, (data: string) => {
+      this.showResponse(new MessageResponse(data));
     });
-    this.socket.on('disconnect', function () {
-
-    });
-    this.socket.on('reconnect', function () {
-
-    });
-    this.socket.on('reconnect_error', function () {
-
-    });*/
   }
 
   sendHello(){
