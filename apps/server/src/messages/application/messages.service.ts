@@ -34,8 +34,10 @@ export class MessagesService implements Receiver, OnGatewayInit, OnGatewayConnec
     getMessageLength() {}
 
     @SubscribeMessage(Commands.GET_MESSAGE)
-    getMessage(client: Socket, udpPort: string) {
+    async getMessage(client: Socket, udpPort: string) {
+        this.logger.log("Obteniendo mensaje");
         const port = parseInt(udpPort);
+        await this.messagesRepository.getMessage(port)
     }
 
     @SubscribeMessage(Commands.CHECKSUM)
