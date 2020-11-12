@@ -3,6 +3,7 @@ import { Socket } from "net";
 import { EventBus } from "../../shared/event-bus/domain/event-bus";
 import { EventBusMessages } from "../../shared/event-bus/domain/event-bus-messages";
 import { Injectable } from "@nestjs/common";
+import {ErrorMessages} from "../domain/error-messages";
 
 @Injectable()
 export class MessagesSocketRepository implements MessageRepository {
@@ -20,7 +21,9 @@ export class MessagesSocketRepository implements MessageRepository {
 
     async sendHello(username: string): Promise<void> {
         await new Promise((resolve, reject) => {
-            this.socket.write(`helloiam ${username}`);
+            this.socket.write(`helloiam ${username}`, ()=>{
+                this.eventBus.publish(EventBusMessages.MESSAGE_RECEIVED, ErrorMessages.MESSAGE_FAILED)
+            });
             resolve();
         });
     }

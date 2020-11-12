@@ -7,14 +7,13 @@ import { MessageRepository } from "../messages/domain/message.repository";
 import { MessagesSocketRepository } from "../messages/infrastucture/messages.socket.repository";
 import { openConnection } from "../messages/infrastucture/socket-connection";
 import { Socket } from "net";
-const HOST = "10.2.126.2";
-const PORT = 19876;
+import {ConfigKeys} from "../shared/config.keys";
 
 @Module({
     imports: [
-        /*ServeStaticModule.forRoot({
+        ServeStaticModule.forRoot({
             rootPath: `public`
-        })*/
+        })
     ],
     controllers: [],
     providers: [
@@ -29,7 +28,7 @@ const PORT = 19876;
         },
         {
             provide: Socket,
-            useFactory: async () => openConnection(PORT, HOST),
+            useFactory: async () => openConnection(ConfigKeys.PORT, ConfigKeys.HOST),
         },
     ],
 })
