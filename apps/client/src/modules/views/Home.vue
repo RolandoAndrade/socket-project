@@ -25,7 +25,6 @@ export default class Home extends Vue {
     private message: string = "";
 
     showResponse(response: MessageResponse) {
-        console.log(response);
         if (!response.isFailed()) {
             this.message = response.getStatus() + response.getMessage();
             if (response.isSuccess()) {
@@ -44,6 +43,12 @@ export default class Home extends Vue {
         this.socket = io("ws://localhost:3000");
         this.socket.on(EventBusMessages.MESSAGE_RECEIVED, (data: string) => {
             this.showResponse(new MessageResponse(data));
+        });
+        this.socket.on("connect_error", () => {
+          this.showResponse(new MessageResponse("error server is not active, check the vpn status"));
+        });
+        this.socket.on("connect", () => {
+          this.showResponse(new MessageResponse("ok ready to start"));
         });
     }
 

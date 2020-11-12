@@ -21,8 +21,11 @@ export class MessagesSocketRepository implements MessageRepository {
 
     async sendHello(username: string): Promise<void> {
         await new Promise((resolve, reject) => {
-            this.socket.write(`helloiam ${username}`, ()=>{
-                this.eventBus.publish(EventBusMessages.MESSAGE_RECEIVED, ErrorMessages.MESSAGE_FAILED)
+            this.socket.write(`helloiam ${username}`, (error)=>{
+                if(error){
+                    this.eventBus.publish(EventBusMessages.MESSAGE_RECEIVED, error.message)
+                }
+
             });
             resolve();
         });
