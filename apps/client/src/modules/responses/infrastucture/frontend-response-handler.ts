@@ -1,6 +1,6 @@
-import {ResponseHandler} from "../domain/response-handler";
+import { ResponseHandler } from "../domain/response-handler";
 
-export class FrontendResponseHandler implements ResponseHandler{
+export class FrontendResponseHandler implements ResponseHandler {
     error(message: string) {
         alert("error");
     }

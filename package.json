@@ -8,7 +8,7 @@
     "build:watch": "mkdirp dist && cp -r ./public ./dist && tsc --watch",
     "start": "node dist/src/server/index.js",
     "serve": "webpack serve",
-    "format": "prettier --write \"./src/**/*.ts\" \"./test/**/*.ts\" \"./public/**/*.html\""
+    "format": "prettier --write \"./apps/**/*.ts\" \"./test/**/*.ts\" \"./apps/**/*.vue\""
   },
   "jest": {
     "moduleFileExtensions": [
