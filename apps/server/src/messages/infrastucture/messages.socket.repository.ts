@@ -16,7 +16,7 @@ export class MessagesSocketRepository implements MessageRepository {
         this.udpClient.on("message", (data) => {
             const buffer = Buffer.from(data.toString(), 'base64');
             const decodedMessage = buffer.toString('ascii')
-            this.eventBus.publish(EventBusMessages.MESSAGE_RECEIVED, decodedMessage);
+            this.eventBus.publish(EventBusMessages.MESSAGE_RECEIVED, `ok the decoded message is ${decodedMessage}`);
             this.udpClient.close();
         })
     }
