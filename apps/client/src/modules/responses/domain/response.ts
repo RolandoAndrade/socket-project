@@ -5,11 +5,10 @@ export class MessageResponse {
     private readonly message: string;
 
     constructor(data: string) {
-        if(data && data.includes("message received:")){
-            this.status = 'message received';
+        if (data && data.includes("message received:")) {
+            this.status = "message received";
             this.message = data.substring(18);
-        }
-        else {
+        } else {
             const index = data.indexOf(" ");
             if (index > 0) {
                 this.status = data.substring(0, index);
@@ -19,7 +18,6 @@ export class MessageResponse {
                 this.message = "";
             }
         }
-
     }
 
     public isFailed(): boolean {

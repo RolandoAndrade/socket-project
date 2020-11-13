@@ -16,7 +16,9 @@ describe("messages service test", () => {
     beforeAll(async () => {
         socket = await openConnection(19876, "127.0.0.1");
         eventBus = new GenericEventBus();
-        eventBus.publish = jest.fn().mockImplementation((topic: string, subject: string)=>console.log('Recibido:', subject));
+        eventBus.publish = jest
+            .fn()
+            .mockImplementation((topic: string, subject: string) => console.log("Recibido:", subject));
         repository = new MessagesSocketRepository(socket, eventBus);
         service = new MessagesService(repository, eventBus);
     });
