@@ -5,14 +5,21 @@ export class MessageResponse {
     private readonly message: string;
 
     constructor(data: string) {
-        const index = data.indexOf(" ");
-        if (index > 0) {
-            this.status = data.substring(0, index);
-            this.message = data.substring(index + 1);
-        } else {
-            this.status = data;
-            this.message = "";
+        if(data && data.includes("message received:")){
+            this.status = 'message received';
+            this.message = data.substring(18);
         }
+        else {
+            const index = data.indexOf(" ");
+            if (index > 0) {
+                this.status = data.substring(0, index);
+                this.message = data.substring(index + 1);
+            } else {
+                this.status = data;
+                this.message = "";
+            }
+        }
+
     }
 
     public isFailed(): boolean {
@@ -21,6 +28,10 @@ export class MessageResponse {
 
     public isSuccess(): boolean {
         return this.status.includes("ok");
+    }
+
+    public isAMessage(): boolean {
+        return this.status.includes("message received");
     }
 
     public getStatus(): string {

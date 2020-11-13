@@ -1,7 +1,17 @@
 <template>
     <v-container>
         <v-btn @click="() => sendHello()">HOLA</v-btn>
+      <v-btn @click="() => giveMeMessage()">Mensaje</v-btn>
         <v-snackbar v-model="showMessage" :color="color" top right>{{ message }}</v-snackbar>
+       <v-snackbar v-model="showQuote" color="purple" centered dark :timeout="10000">
+         <v-col class="text-center">
+           <div class="overline">El mensaje recibido es:</div>
+           <div class="quote">
+             {{ quote }}
+           </div>
+         </v-col>
+
+       </v-snackbar>
     </v-container>
 </template>
 
@@ -24,19 +34,28 @@ export default class Home extends Vue {
     private showMessage: boolean = false;
     private message: string = "";
 
+    quote: string = "";
+    showQuote: boolean = false;
+
     showResponse(response: MessageResponse) {
+      if(response.isAMessage()){
+        this.quote = response.getMessage();
+        this.showQuote = true;
+      }
+      else {
         if (!response.isFailed()) {
-            this.message = response.getStatus() + response.getMessage();
-            if (response.isSuccess()) {
-                this.color = "blue";
-            } else {
-                this.color = "error";
-            }
-        } else {
+          this.message = response.getStatus() + response.getMessage();
+          if (response.isSuccess()) {
+            this.color = "blue";
+          } else {
             this.color = "error";
-            this.message = "Error: Server didn't response";
+          }
+        } else {
+          this.color = "error";
+          this.message = "Error: Server didn't response";
         }
         this.showMessage = true;
+      }
     }
 
     created() {
@@ -55,32 +74,16 @@ export default class Home extends Vue {
     sendHello() {
         this.socket.emit(Commands.SEND_HELLO, "rjandrade.17");
     }
+
+    giveMeMessage() {
+      this.socket.emit(Commands.GET_MESSAGE, "51234");
+    }
 }
 </script>
 
 <style scoped>
-.full-bg {
-    width: 100%;
-    height: calc(100vh - 64px);
-}
-
-.full-height {
-    height: 100%;
-    width: 100%;
-}
-
-.main-title {
-    text-align: center;
-    font-size: 5em;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: white;
-    font-weight: lighter;
-}
-
-@media (max-width: 600px) {
-    .main-title {
-        font-size: 3em;
-    }
+.quote{
+  font-style: italic;
+  font-size: 12px;
 }
 </style>

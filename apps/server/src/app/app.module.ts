@@ -5,7 +5,7 @@ import { GenericEventBus } from "../shared/event-bus/infrastructure/generic-even
 import { MessagesService } from "../messages/application/messages.service";
 import { MessageRepository } from "../messages/domain/message.repository";
 import { MessagesSocketRepository } from "../messages/infrastucture/messages.socket.repository";
-import { openConnection } from "../messages/infrastucture/socket-connection";
+import {openConnection, socketInstance} from "../messages/infrastucture/socket-connection";
 import { Socket } from "net";
 import {ConfigKeys} from "../shared/config.keys";
 
@@ -28,7 +28,10 @@ import {ConfigKeys} from "../shared/config.keys";
         },
         {
             provide: Socket,
-            useFactory: async () => openConnection(ConfigKeys.PORT, ConfigKeys.HOST),
+            useFactory: async () => {
+                await openConnection(ConfigKeys.PORT, ConfigKeys.HOST);
+                return socketInstance;
+            },
         },
     ],
 })
