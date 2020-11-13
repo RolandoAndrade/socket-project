@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-main>
+        <v-main class="color-grey">
             <router-view></router-view>
         </v-main>
     </v-app>
@@ -28,5 +28,9 @@ export default Vue.extend({
 
 .gradient-primary {
     background: linear-gradient(90deg, rgba(35, 15, 50, 1) 0%, rgba(115, 75, 110, 1) 100%) !important;
+}
+
+.color-grey{
+  background: #fafafa;
 }
 </style>

@@ -1,7 +1,43 @@
 <template>
     <v-container>
-        <v-btn @click="() => sendHello()">HOLA</v-btn>
-        <v-btn @click="() => giveMeMessage()">Mensaje</v-btn>
+          <v-col>
+            <div class="overline text-center font-weight-light">ACCIONES</div>
+            <v-card class="pa-8 mx-auto" outlined width="800">
+              <v-row align="center" dense>
+                <v-col cols="8">
+                  <v-text-field label="Username" outlined v-model="username" :disabled="isSigned"></v-text-field>
+                </v-col>
+                <v-col cols="4">
+                  <v-text-field label="UDP port" outlined v-model="udpPort" :disabled="!isSigned"></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row dense>
+                <v-col>
+                  <v-btn  block class="mr-2" :outlined="!isSigned" color="orange" dark :disabled="!isSigned">GET LENGTH</v-btn>
+                </v-col>
+                <v-col>
+                  <v-btn  block class="mr-2" outlined color="purple" dark :disabled="!isSigned">GET MESSAGE</v-btn>
+                </v-col>
+                <v-col>
+                  <v-btn  block class="mr-2" outlined color="cyan" dark :disabled="!isSigned">CHECKSUM</v-btn>
+                </v-col>
+                <v-col>
+                  <v-btn  block class="mr-2" :outlined="!isSigned" color="green" dark @click="()=>sendHello()" :disabled="isSigned">HELLO!</v-btn>
+                  <v-btn  block class="mr-2" outlined color="grey" dark :disabled="!isSigned">BYE</v-btn>
+                </v-col>
+              </v-row>
+            </v-card>
+
+          </v-col>
+
+        <div class="overline text-center font-weight-light mt-6">RESPUESTAS RECIBIDAS</div>
+
+        <v-sheet color="transparent" class="mx-auto"  width="800">
+          <div v-for="(msg, k) in messages" :key="k">
+            <v-card shaped dark class="error pa-4 my-2" v-if="!msg.isSuccess()">{{msg.getMessage() || msg.getStatus()}}</v-card>
+            <v-card shaped dark class="blue pa-4 my-2" v-else>{{msg.getMessage() || msg.getStatus()}}</v-card>
+          </div>
+        </v-sheet>
         <v-snackbar v-model="showMessage" :color="color" top right>{{ message }}</v-snackbar>
         <v-snackbar v-model="showQuote" color="purple" centered dark :timeout="10000">
             <v-col class="text-center">
@@ -36,7 +72,16 @@ export default class Home extends Vue {
     quote: string = "";
     showQuote: boolean = false;
 
+    messages: MessageResponse[] = []
+
+    username: string | null = null;
+
+    udpPort: number | null  = null;
+
+    isSigned: boolean = false;
+
     showResponse(response: MessageResponse) {
+        this.messages = [response, ...this.messages]
         if (response.isAMessage()) {
             this.quote = response.getMessage();
             this.showQuote = true;
@@ -70,7 +115,7 @@ export default class Home extends Vue {
     }
 
     sendHello() {
-        this.socket.emit(Commands.SEND_HELLO, "rjandrade.17");
+        this.socket.emit(Commands.SEND_HELLO, this.username);
     }
 
     giveMeMessage() {
@@ -83,5 +128,11 @@ export default class Home extends Vue {
 .quote {
     font-style: italic;
     font-size: 12px;
+}
+
+
+.message-history{
+  padding: 10px;
+  border-radius: 10px;
 }
 </style>
