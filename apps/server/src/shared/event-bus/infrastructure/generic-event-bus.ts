@@ -39,7 +39,7 @@ export class GenericEventBus implements EventBus {
             receiver.receive(topic, subject);
         } catch (e) {
             console.log("Hubo un error recibiendo el mensaje");
-            console.log(JSON.stringify(e.message))
+            console.log(JSON.stringify(e.message));
             triesLeft -= 1;
             if (triesLeft > 0) {
                 this.retryPublish(topic, subject, receiver, triesLeft);

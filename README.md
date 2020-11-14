@@ -29,13 +29,13 @@ Then [Open your browser at http://localhost:3000](http://localhost:3000)
 
 ![image](https://user-images.githubusercontent.com/44983658/99154447-33b67200-2686-11eb-9cb4-1314c019548a.png)
 
-## Considerations for windows user: 
+## Considerations for Windows users: 
 
-It is possible that you have some problems while trying to get your message from the client in case that your OS is Windows, to fix this you have to check somethings:
+It is possible that you have some problems while trying to get your message from the client in case that your OS is Windows, to fix this you have to check some things:
 
 ## 1: check if you have a port available to recieve the message
 
-You most likely have one aveliable that you dont know, in case you dont, you would need to open one, in my case, i opened the por 3022, as show below.
+You most likely have one available that you don't know, in case you don't, you would need to open one, example, here is opened the por 3022, as show below.
 ![image](https://user-images.githubusercontent.com/44983658/99152536-c51ee780-2678-11eb-9208-10c19a4f0a10.png)
 
 ## 2: Disable the firewall completly
@@ -47,7 +47,7 @@ It sound a little extreme, but windows doesnt like messages from remotes servers
 
 You are ready to go!
 
-## MIT © 
+## Authors
 ![image](https://github.com/RolandoAndrade.png?size=50)
 ![image](https://github.com/angelsucasas.png?size=50)
 ![image](https://github.com/ikerumerez.png?size=50)

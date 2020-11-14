@@ -30,7 +30,7 @@ export default Vue.extend({
     background: linear-gradient(90deg, rgba(35, 15, 50, 1) 0%, rgba(115, 75, 110, 1) 100%) !important;
 }
 
-.color-grey{
-  background: #fafafa;
+.color-grey {
+    background: #fafafa;
 }
 </style>

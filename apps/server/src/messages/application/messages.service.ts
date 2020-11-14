@@ -32,7 +32,7 @@ export class MessagesService implements Receiver, OnGatewayInit, OnGatewayConnec
 
     @SubscribeMessage(Commands.GET_MESSAGE_LENGTH)
     async getMessageLength() {
-        this.logger.log("Consiguiendo tamaño del mensaje para el usuario..")
+        this.logger.log("Consiguiendo tamaño del mensaje para el usuario..");
         await this.messagesRepository.getMessageLength();
     }
 
@@ -45,13 +45,13 @@ export class MessagesService implements Receiver, OnGatewayInit, OnGatewayConnec
 
     @SubscribeMessage(Commands.CHECKSUM)
     async checksum(client: Socket, message: string) {
-        this.logger.log("Confirmando el mensaje recibido con el servidor...")
+        this.logger.log("Confirmando el mensaje recibido con el servidor...");
         await this.messagesRepository.getMessageLength();
     }
 
     @SubscribeMessage(Commands.SEND_BYE)
     async sendBye() {
-        this.logger.log("Finalizando coneccion...")
+        this.logger.log("Finalizando coneccion...");
         await this.messagesRepository.sendBye();
     }
 

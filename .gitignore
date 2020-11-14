@@ -22,3 +22,5 @@ yarn-error.log*
 # Project exclude paths
 /dist/
 /apps/server/public
+/apps/server/dist
+*/**/package-lock.json
