@@ -27,6 +27,9 @@ npm run start
 
 Then [Open your browser at http://localhost:3000](http://localhost:3000)
 
+![image](https://user-images.githubusercontent.com/44983658/99154392-d3273500-2685-11eb-9516-c0c9be6fa383.png)
+
+
 ## Considerations for windows user: 
 
 It is possible that you have some problems while trying to get your message from the client in case that your OS is Windows, to fix this you have to check somethings:
