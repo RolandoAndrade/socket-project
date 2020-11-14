@@ -1,4 +1,4 @@
-/*import {MessagesService} from "./messages/application/messages.service";
+import {MessagesService} from "./messages/application/messages.service";
 import {MessagesSocketRepository} from "./messages/infrastucture/messages.socket.repository";
 import {openConnection} from "./messages/infrastucture/socket-connection";
 import {GenericEventBus} from "./shared/event-bus/infrastructure/generic-event-bus";
@@ -20,13 +20,13 @@ async function setUp(){
     eventBus = new GenericEventBus();
     repository = new MessagesSocketRepository(socket, eventBus);
     const responseHandler = new FrontendResponseHandler();
-    messageService = new MessagesService(repository, responseHandler);
+    messageService = new MessagesService(repository/*, responseHandler*/);
     eventBus.subscribe(EventBusMessages.MESSAGE_RECEIVED, messageService);
-    await messageService.sendHello("usuario_1");
+    await messageService.sendHello(socket,"aasucasas.17");
 }
 
 setUp();
 
-*/
+
 
 import * as path from "path";

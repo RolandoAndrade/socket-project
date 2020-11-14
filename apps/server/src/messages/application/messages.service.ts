@@ -24,28 +24,33 @@ export class MessagesService implements Receiver, OnGatewayInit, OnGatewayConnec
 
     @SubscribeMessage(Commands.SEND_HELLO)
     async sendHello(client: Socket, username: string) {
-        this.logger.log("Enviando saludo")
+        this.logger.log("Enviando saludo...")        
         await this.messagesRepository.sendHello(username);
     }
 
     @SubscribeMessage(Commands.GET_MESSAGE_LENGTH)
-    getMessageLength(){
-
+    async getMessageLength(){
+        this.logger.log("Consiguiendo tamaño del mensaje para el usuario..")
+        await this.messagesRepository.getMessageLength();
     }
 
     @SubscribeMessage(Commands.GET_MESSAGE)
-    getMessage(client: Socket, udpPort: string){
+    async getMessage(client: Socket, udpPort: string){
+        this.logger.log("Solicitando mensaje a un puerto UDP del cliente..")
         const port = parseInt(udpPort);
+        await this.messagesRepository.getMessage(port);
     }
 
     @SubscribeMessage(Commands.CHECKSUM)
-    checksum(client: Socket, message: string){
-
+    async checksum(client: Socket, message: string){
+        this.logger.log("Enviando comando para validar el contenido del mensaje...")
+        await this.messagesRepository.getMessageLength();
     }
 
     @SubscribeMessage(Commands.SEND_BYE)
-    sendBye() {
-
+    async sendBye() {
+        this.logger.log("Finalizando coneccion...")
+        await this.messagesRepository.getMessageLength();
     }
 
     receive(topic: string, subject: string) {

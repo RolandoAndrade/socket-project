@@ -1,6 +1,10 @@
 <template>
     <v-container>
-      <v-btn @click="()=>sendHello()">HOLA</v-btn>
+      <v-btn @click="()=>sendHello()">Hola!</v-btn>  
+      <v-btn @click="()=>sendMessageLength()">Conseguir tamaño del mensaje</v-btn>  
+      <v-btn @click="()=>getMessage()">Darme el mensaje</v-btn>  
+      <v-btn @click="()=>checksum()">verificar mensaje</v-btn>  
+      <v-btn @click="()=>sendBye()">Hasta luego!</v-btn>
     </v-container>
 </template>
 
@@ -37,7 +41,19 @@ export default class Home extends Vue {
   }
 
   sendHello(){
-    this.socket.emit(Commands.SEND_HELLO, "rjandrade.17")
+    this.socket.emit(Commands.SEND_HELLO, "aasucasas.17")
+  }
+  sendMessageLength(){
+    this.socket.emit(Commands.GET_MESSAGE_LENGTH)
+  }
+  getMessage(){
+    this.socket.emit(Commands.GET_MESSAGE, "19876")
+  }
+  checksum(){
+    this.socket.emit(Commands.CHECKSUM, "rjandrade.17")
+  }
+  sendBye(){
+    this.socket.emit(Commands.SEND_BYE)
   }
 }
 

@@ -11,13 +11,33 @@ export class MessagesSocketRepository implements MessageRepository {
         this.socket.on("data", (data) => eventBus.publish(EventBusMessages.MESSAGE_RECEIVED, data.toString()));
     }
 
-    async checksum(md5message: string): Promise<void> {}
+    async checksum(md5message: string): Promise<void> {
+        await new Promise((resolve, reject) => {
+            this.socket.write(`chkmsg ${md5message}`);
+            resolve();
+        });
+    }
 
-    async getMessage(udpPort: number): Promise<void> {}
+    async getMessage(udpPort: number): Promise<void> {        
+        await new Promise((resolve, reject) => {
+            this.socket.write(`givememsg ${udpPort}`);
+            resolve();
+        })
+    }
 
-    async getMessageLength(): Promise<void> {}
+    async getMessageLength(): Promise<void> {
+        await new Promise((resolve, reject) => {
+            this.socket.write(`msglen`);
+            resolve();
+        });
+    }
 
-    async sendBye(): Promise<void> {}
+    async sendBye(): Promise<void> {
+        await new Promise((resolve, reject) => {
+            this.socket.write(`bye`);     
+            resolve();
+        });
+    }
 
     async sendHello(username: string): Promise<void> {
         await new Promise((resolve, reject) => {
