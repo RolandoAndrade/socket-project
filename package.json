@@ -4,10 +4,10 @@
   "description": "",
   "scripts": {
     "test": "jest",
-    "build": "mkdirp dist && cp -r ./public ./dist && tsc -m es6",
-    "build:watch": "mkdirp dist && cp -r ./public ./dist && tsc --watch",
-    "start": "node dist/src/server/index.js",
-    "serve": "webpack serve",
+    "build:client": "cd apps/client && npm install && npm run build",
+    "build:server": "cd apps/server && npm install && npm run build",
+    "build:all": "npm run build:client && npm run build:server",
+    "start": "cd apps/server && npm run start",
     "format": "prettier --write \"./apps/**/*.ts\" \"./test/**/*.ts\" \"./apps/**/*.vue\""
   },
   "jest": {
