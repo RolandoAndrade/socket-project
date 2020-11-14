@@ -15,4 +15,4 @@ npm run build
 npm run start
 ```
 
-
+Then [Open your browser at http://localhost:3000](http://localhost:3000)

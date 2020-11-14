@@ -23,3 +23,4 @@ If it fails, you should try to download the dependencies and build each module i
 npm run start
 ```
 
+Then [Open your browser at http://localhost:3000](http://localhost:3000)
