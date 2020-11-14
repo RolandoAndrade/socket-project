@@ -48,7 +48,9 @@ You are ready to go!
 ## MIT © 
 ![image](https://github.com/RolandoAndrade.png?size=50)
 ![image](https://github.com/angelsucasas.png?size=50)
+![image](https://github.com/ikerumerez.png?size=50)
 
+[Iker Umerez](mailto:ikerumerez96@gmail.com)
 [Rolando Andrade](mailto:rolandoandradefernandez@gmail.com)
 [Ángel Sucasas](mailto:angel.alejandro.sucasas08@gmail.com)
 
