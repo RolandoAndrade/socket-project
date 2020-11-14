@@ -1,4 +1,4 @@
-# Socket client
+# Socket server of client
 
 ## Project setup
 ```
@@ -10,4 +10,9 @@ npm install
 npm run build
 ```
 
-It saves the dist folder as public at server folder.
+### Start the server at port 3000
+```
+npm run start
+```
+
+
