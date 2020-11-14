@@ -1,4 +1,4 @@
-# Socket client
+# Socket client ![npm](https://img.shields.io/badge/nestjs.7.5.1-green) ![npm](https://img.shields.io/badge/vue.2.6.11-green) ![npm](https://img.shields.io/badge/socketio.2.3.0-blue)
 
 ## Requirements
 
