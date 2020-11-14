@@ -42,3 +42,11 @@ It sound a little extreme, but windows doesnt like messages from remotes servers
 
 
 You are ready to go!
+
+## MIT © 
+![image](https://github.com/RolandoAndrade.png?size=50)
+![image](https://github.com/angelsucasas.png?size=50)
+
+[Gabriel Ortega](mailto:rolandoandradefernandez@gmail.com)
+[Ángel Sucasas](mailto:angel.alejandro.sucasas08@gmail.com)
+
