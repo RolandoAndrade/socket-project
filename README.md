@@ -27,8 +27,7 @@ npm run start
 
 Then [Open your browser at http://localhost:3000](http://localhost:3000)
 
-![image](https://user-images.githubusercontent.com/44983658/99154392-d3273500-2685-11eb-9516-c0c9be6fa383.png)
-
+![image](https://user-images.githubusercontent.com/44983658/99154447-33b67200-2686-11eb-9cb4-1314c019548a.png)
 
 ## Considerations for windows user: 
 
