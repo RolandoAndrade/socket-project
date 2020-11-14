@@ -8,6 +8,8 @@ See [NodeJS download Reference](https://nodejs.org/es/download/).
 
 
 ## Install all dependencies, compile and build all files
+
+On the folder "socket-project" use the next command:
 ```
 npm run build:all
 ```
