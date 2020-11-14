@@ -161,19 +161,9 @@
         "signature": "d2f31f19e1ba6ed59be9259d660a239d9a3fcbbc8e038c6b2009bde34b175fed",
         "affectsGlobalScope": false
       },
-      "../src/messages/domain/message.repository.ts": {
-        "version": "49522a36fccd1739c3033b9a7dd07850b6802643bf09980812ba59b9392cbabd",
-        "signature": "f304060fb79199f8aeb8b05dfe7de197745be9e6eab0954467839b0c5acba5e3",
-        "affectsGlobalScope": false
-      },
-      "../src/shared/event-bus/domain/receiver.ts": {
-        "version": "9d54efd2a7224f1ca9feb270f5a349e9e9bc1ed508ed2ec281d697596b4c45a2",
-        "signature": "87e27ae94cc540300dee5646e934ef468afd1ec60d659ae576244b3bc57c7fd8",
-        "affectsGlobalScope": false
-      },
-      "../src/shared/event-bus/domain/event-bus-messages.ts": {
-        "version": "65df120521e5005f12dc862e6d73ccb69838c34ebdcca8c50c81e3f87ebc03f7",
-        "signature": "528c0ceea0dba9f3bacef6151c5a88c0d8c5efc8ac1559e78d8735a06d27f7ff",
+      "../src/index.ts": {
+        "version": "636fda23181cd9a69374a35d6c316611851209d63a573b7495159470a387d481",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
       "../node_modules/reflect-metadata/index.d.ts": {
@@ -1191,186 +1181,6 @@
         "signature": "95b5a3078fdc51508d5d9cde59a1dd9525b53fd42dc12265a55261fd415d3274",
         "affectsGlobalScope": false
       },
-      "../node_modules/@nestjs/websockets/adapters/ws-adapter.d.ts": {
-        "version": "7d2eed7cce648593302069d3fabed797a0a83c05f696e9ba92b1a8df2a0cbcf9",
-        "signature": "7d2eed7cce648593302069d3fabed797a0a83c05f696e9ba92b1a8df2a0cbcf9",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/adapters/index.d.ts": {
-        "version": "6aac2c5ca00378e4d1421a03f614643dc1e9fd02279257cbf2e8e2a713b00907",
-        "signature": "6aac2c5ca00378e4d1421a03f614643dc1e9fd02279257cbf2e8e2a713b00907",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/decorators/connected-socket.decorator.d.ts": {
-        "version": "33dd63d5dbfd02cdfc4fc6d47750e619de2da36fe98176731ea2a291287ff4c4",
-        "signature": "33dd63d5dbfd02cdfc4fc6d47750e619de2da36fe98176731ea2a291287ff4c4",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/decorators/gateway-server.decorator.d.ts": {
-        "version": "6ad4a01c7e7ebf90072bd6f3087abcf6a443fe41ebcb13b5a0bcfd742dd8ebd5",
-        "signature": "6ad4a01c7e7ebf90072bd6f3087abcf6a443fe41ebcb13b5a0bcfd742dd8ebd5",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/decorators/message-body.decorator.d.ts": {
-        "version": "8a4de75e44a9943c4678d37601bc09517180ad3b9245e5f4b8531b33233f2281",
-        "signature": "8a4de75e44a9943c4678d37601bc09517180ad3b9245e5f4b8531b33233f2281",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/interfaces/gateway-metadata.interface.d.ts": {
-        "version": "7267ca11f2aad612f4026bb0337846d7a595d91c4c3746506957ba407a517830",
-        "signature": "7267ca11f2aad612f4026bb0337846d7a595d91c4c3746506957ba407a517830",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-connection.interface.d.ts": {
-        "version": "93850d9e8a0e018eca4809c67df09547c4b6d482c55fd6eae3030847f1c4b9ee",
-        "signature": "93850d9e8a0e018eca4809c67df09547c4b6d482c55fd6eae3030847f1c4b9ee",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-disconnect.interface.d.ts": {
-        "version": "9a8e992b0199d6b032b6223a87050e3738671f2742794233649706438fe16724",
-        "signature": "9a8e992b0199d6b032b6223a87050e3738671f2742794233649706438fe16724",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-init.interface.d.ts": {
-        "version": "f60ccdb5672ab91d03afc4f24f402e5164a6c818bf15185f5361802523f86df7",
-        "signature": "f60ccdb5672ab91d03afc4f24f402e5164a6c818bf15185f5361802523f86df7",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/interfaces/hooks/index.d.ts": {
-        "version": "931574e125523649902eee2db57c221a1b36417db4f2c4665bf38ce2170ea06e",
-        "signature": "931574e125523649902eee2db57c221a1b36417db4f2c4665bf38ce2170ea06e",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/interfaces/socket-events-host.interface.d.ts": {
-        "version": "8507490941583b43ffa5f8becc19d90530e0619b08f0c2e8bc6e71ce75ef1c14",
-        "signature": "8507490941583b43ffa5f8becc19d90530e0619b08f0c2e8bc6e71ce75ef1c14",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/interfaces/web-socket-server.interface.d.ts": {
-        "version": "438b57c680914f2dd27b29789a5d8c169d3abcfb584b68a520e0df5c3ca3cef5",
-        "signature": "438b57c680914f2dd27b29789a5d8c169d3abcfb584b68a520e0df5c3ca3cef5",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/interfaces/ws-response.interface.d.ts": {
-        "version": "510292e419065814acdc81c37a2d801efea1715951600cfbdc1b712f9da10451",
-        "signature": "510292e419065814acdc81c37a2d801efea1715951600cfbdc1b712f9da10451",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/interfaces/index.d.ts": {
-        "version": "552c721b49a127b5ccaa59ee7793c43deb530ef4434b59b801ada4368e6b1395",
-        "signature": "552c721b49a127b5ccaa59ee7793c43deb530ef4434b59b801ada4368e6b1395",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/decorators/socket-gateway.decorator.d.ts": {
-        "version": "af3919f1e15caad054071c209341804d85ab679b78979fdf1b1aac4a73dd634a",
-        "signature": "af3919f1e15caad054071c209341804d85ab679b78979fdf1b1aac4a73dd634a",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/decorators/subscribe-message.decorator.d.ts": {
-        "version": "6aa893aa7bbf9ce05b51e9af8a72816fcb5d54ce0959998640da8d0fcfd8b529",
-        "signature": "6aa893aa7bbf9ce05b51e9af8a72816fcb5d54ce0959998640da8d0fcfd8b529",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/decorators/index.d.ts": {
-        "version": "877388f59a044fc4c4689637425d4f8762662b4c6dc86d55864ca8816382b69e",
-        "signature": "877388f59a044fc4c4689637425d4f8762662b4c6dc86d55864ca8816382b69e",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/errors/ws-exception.d.ts": {
-        "version": "162ffbed80dad8ce0cf81c330c88dccaae85425fb457a6afcae0110419bdedfb",
-        "signature": "162ffbed80dad8ce0cf81c330c88dccaae85425fb457a6afcae0110419bdedfb",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/errors/index.d.ts": {
-        "version": "a85d6e7924c263fdb7a9e28a578401f2f96950ff9fd0e250c76f25de5ce3b9f2",
-        "signature": "a85d6e7924c263fdb7a9e28a578401f2f96950ff9fd0e250c76f25de5ce3b9f2",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/exceptions/base-ws-exception-filter.d.ts": {
-        "version": "8ad06cf401a920fbbea4b0436b80fb92f74bfea9e79312896179d3a6c8e9a3b0",
-        "signature": "8ad06cf401a920fbbea4b0436b80fb92f74bfea9e79312896179d3a6c8e9a3b0",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/exceptions/index.d.ts": {
-        "version": "57947d16b34a3811f854965fe668e81ccea9dd6321e412ea1a2c75d4fd2619c1",
-        "signature": "57947d16b34a3811f854965fe668e81ccea9dd6321e412ea1a2c75d4fd2619c1",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/core/metadata-scanner.d.ts": {
-        "version": "7cb9b6d5c1e3508fbc81e7bbab314eac54715f9326ac72fd0eb65f17a4393d50",
-        "signature": "7cb9b6d5c1e3508fbc81e7bbab314eac54715f9326ac72fd0eb65f17a4393d50",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/interfaces/nest-gateway.interface.d.ts": {
-        "version": "e52c9bb4a4e20ed2ed5cd0aa01d15261949691bffd4d7f5011e79bced9d14e5c",
-        "signature": "e52c9bb4a4e20ed2ed5cd0aa01d15261949691bffd4d7f5011e79bced9d14e5c",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/gateway-metadata-explorer.d.ts": {
-        "version": "6c36e6a90dd3e1f5e488c56aede7168ea429589d0095285701b7b56f47262bbd",
-        "signature": "6c36e6a90dd3e1f5e488c56aede7168ea429589d0095285701b7b56f47262bbd",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/websockets/index.d.ts": {
-        "version": "4bc4c7612f5cc6298b01f76f7a21674181ae6e199a0b07c518107c15bde32344",
-        "signature": "4bc4c7612f5cc6298b01f76f7a21674181ae6e199a0b07c518107c15bde32344",
-        "affectsGlobalScope": false
-      },
-      "../src/messages/domain/commands.ts": {
-        "version": "36560c0595a690acde22bc4af22923046b8bdd93cbbb53dfc8ac27dab4776785",
-        "signature": "a3fc0a8797694451b8d910113b4b74089c1004255821ed7d72d9d241ccab436f",
-        "affectsGlobalScope": false
-      },
-      "../src/messages/application/messages.service.ts": {
-        "version": "f42cc8aae9bac44f62e38f2de4ad1772d2b7ff3ceac5f9191b8de78c5c839150",
-        "signature": "36147e1b102daa3f3e0e18c70c329d4e5e1809d6d29f1f504e26ca69c14bdc57",
-        "affectsGlobalScope": false
-      },
-      "../src/shared/event-bus/domain/event-bus.ts": {
-        "version": "991d7cccc94c5ca728e0e2d24b33e3003953b44073a5fbfe50c5d5221f0db326",
-        "signature": "0e29746dc129a37a8933b1ea5afe795dba4582c1f037fc5449e115b8191dd325",
-        "affectsGlobalScope": false
-      },
-      "../src/messages/infrastucture/messages.socket.repository.ts": {
-        "version": "865111718ed772fd35d6cd3ba788e90a0f741c68f9bf2c6cc32ac03d9661f340",
-        "signature": "9da51bf1158f2873cf6780edc43e11be26615665f9bd32422c4e1b1d6890c9d5",
-        "affectsGlobalScope": false
-      },
-      "../src/messages/infrastucture/socket-connection.ts": {
-        "version": "67253e12704c7988d65ffd9c8701b55461fcfde63b7393d660e0a2bc9bda3c96",
-        "signature": "ef37c74cd2ab36c737de798518dd532b8e6d9de0ac52052a3540c088a6e31174",
-        "affectsGlobalScope": false
-      },
-      "../src/shared/event-bus/infrastructure/generic-event-bus.ts": {
-        "version": "3d852f58cf976558772e6ff44e64a7f096e2e334dd68a7014c5f16ac1c201833",
-        "signature": "f45a7d6fa194e58e181e670b236e2a0fbb3ce63760c72f5e1b26a7610bb2acdb",
-        "affectsGlobalScope": false
-      },
-      "../src/responses/domain/response-handler.ts": {
-        "version": "401c38d51a85ecf2786b2cd78a5a35de3f8ac52e4caef5a802feff50e22dab79",
-        "signature": "9200bd26c6d40a8e0810f1f4c874b7463fcebb0889202d721316424351d0ae43",
-        "affectsGlobalScope": false
-      },
-      "../src/responses/infrastucture/frontend-response-handler.ts": {
-        "version": "194526b1c8886594b89de82f6540e4908e45b98880ebe5d91299fee3c9bd257f",
-        "signature": "c93f5bdc12a88a963256bfd89fe1cc620463f654abc51f87b5228fca735f30bb",
-        "affectsGlobalScope": false
-      },
-      "../src/index.ts": {
-        "version": "3fbacd2251377a39c1203dd57845f6f5783cae3523eefdc0f0e419bfcc9fc5b2",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
-        "affectsGlobalScope": false
-      },
-      "../src/main.ts": {
-        "version": "391c8b6d8b5ec9ec5e437c8588547444f0b0ca23047539e471505b75677a849c",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@nestjs/serve-static/dist/interfaces/serve-static-options.interface.d.ts": {
-        "version": "0c21eb72dd7efa9b8b14f20e2922c30eda75fb38a71870d5959b8277260026f5",
-        "signature": "0c21eb72dd7efa9b8b14f20e2922c30eda75fb38a71870d5959b8277260026f5",
-        "affectsGlobalScope": false
-      },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
         "version": "748dc5e30576ac07af1121893bb1beaafb0d7d0000142b69fae2b2995fc7f7f4",
         "signature": "748dc5e30576ac07af1121893bb1beaafb0d7d0000142b69fae2b2995fc7f7f4",
@@ -1476,6 +1286,11 @@
         "signature": "e99e3ad9035927f61b1d6b54c51fca01e46bdcaf861fd9484086d871e76d0aef",
         "affectsGlobalScope": false
       },
+      "../node_modules/@nestjs/core/metadata-scanner.d.ts": {
+        "version": "7cb9b6d5c1e3508fbc81e7bbab314eac54715f9326ac72fd0eb65f17a4393d50",
+        "signature": "7cb9b6d5c1e3508fbc81e7bbab314eac54715f9326ac72fd0eb65f17a4393d50",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@nestjs/core/middleware/routes-mapper.d.ts": {
         "version": "5175a0f207a73df7426acc2bdc854b0c4bfab7434742f873816f0fc71f4fa2f5",
         "signature": "5175a0f207a73df7426acc2bdc854b0c4bfab7434742f873816f0fc71f4fa2f5",
@@ -1546,6 +1361,11 @@
         "signature": "7b5ed961a0e03965299591d73de8b8c41e8a68105ff4fc07a240b0dfb94a5a3d",
         "affectsGlobalScope": false
       },
+      "../node_modules/@nestjs/serve-static/dist/interfaces/serve-static-options.interface.d.ts": {
+        "version": "0c21eb72dd7efa9b8b14f20e2922c30eda75fb38a71870d5959b8277260026f5",
+        "signature": "0c21eb72dd7efa9b8b14f20e2922c30eda75fb38a71870d5959b8277260026f5",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@nestjs/serve-static/dist/loaders/abstract.loader.d.ts": {
         "version": "4b9c93a83255d603fa4d857aac95257462cde204c7266b552650a18e700c1d46",
         "signature": "4b9c93a83255d603fa4d857aac95257462cde204c7266b552650a18e700c1d46",
@@ -1591,19 +1411,189 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "affectsGlobalScope": false
       },
+      "../src/shared/event-bus/domain/receiver.ts": {
+        "version": "9d54efd2a7224f1ca9feb270f5a349e9e9bc1ed508ed2ec281d697596b4c45a2",
+        "signature": "87e27ae94cc540300dee5646e934ef468afd1ec60d659ae576244b3bc57c7fd8",
+        "affectsGlobalScope": false
+      },
+      "../src/shared/event-bus/domain/event-bus.ts": {
+        "version": "991d7cccc94c5ca728e0e2d24b33e3003953b44073a5fbfe50c5d5221f0db326",
+        "signature": "0e29746dc129a37a8933b1ea5afe795dba4582c1f037fc5449e115b8191dd325",
+        "affectsGlobalScope": false
+      },
+      "../src/shared/event-bus/infrastructure/generic-event-bus.ts": {
+        "version": "3d852f58cf976558772e6ff44e64a7f096e2e334dd68a7014c5f16ac1c201833",
+        "signature": "f45a7d6fa194e58e181e670b236e2a0fbb3ce63760c72f5e1b26a7610bb2acdb",
+        "affectsGlobalScope": false
+      },
+      "../src/messages/domain/message.repository.ts": {
+        "version": "49522a36fccd1739c3033b9a7dd07850b6802643bf09980812ba59b9392cbabd",
+        "signature": "f304060fb79199f8aeb8b05dfe7de197745be9e6eab0954467839b0c5acba5e3",
+        "affectsGlobalScope": false
+      },
+      "../src/shared/event-bus/domain/event-bus-messages.ts": {
+        "version": "65df120521e5005f12dc862e6d73ccb69838c34ebdcca8c50c81e3f87ebc03f7",
+        "signature": "528c0ceea0dba9f3bacef6151c5a88c0d8c5efc8ac1559e78d8735a06d27f7ff",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/adapters/ws-adapter.d.ts": {
+        "version": "7d2eed7cce648593302069d3fabed797a0a83c05f696e9ba92b1a8df2a0cbcf9",
+        "signature": "7d2eed7cce648593302069d3fabed797a0a83c05f696e9ba92b1a8df2a0cbcf9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/adapters/index.d.ts": {
+        "version": "6aac2c5ca00378e4d1421a03f614643dc1e9fd02279257cbf2e8e2a713b00907",
+        "signature": "6aac2c5ca00378e4d1421a03f614643dc1e9fd02279257cbf2e8e2a713b00907",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/decorators/connected-socket.decorator.d.ts": {
+        "version": "33dd63d5dbfd02cdfc4fc6d47750e619de2da36fe98176731ea2a291287ff4c4",
+        "signature": "33dd63d5dbfd02cdfc4fc6d47750e619de2da36fe98176731ea2a291287ff4c4",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/decorators/gateway-server.decorator.d.ts": {
+        "version": "6ad4a01c7e7ebf90072bd6f3087abcf6a443fe41ebcb13b5a0bcfd742dd8ebd5",
+        "signature": "6ad4a01c7e7ebf90072bd6f3087abcf6a443fe41ebcb13b5a0bcfd742dd8ebd5",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/decorators/message-body.decorator.d.ts": {
+        "version": "8a4de75e44a9943c4678d37601bc09517180ad3b9245e5f4b8531b33233f2281",
+        "signature": "8a4de75e44a9943c4678d37601bc09517180ad3b9245e5f4b8531b33233f2281",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/interfaces/gateway-metadata.interface.d.ts": {
+        "version": "7267ca11f2aad612f4026bb0337846d7a595d91c4c3746506957ba407a517830",
+        "signature": "7267ca11f2aad612f4026bb0337846d7a595d91c4c3746506957ba407a517830",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-connection.interface.d.ts": {
+        "version": "93850d9e8a0e018eca4809c67df09547c4b6d482c55fd6eae3030847f1c4b9ee",
+        "signature": "93850d9e8a0e018eca4809c67df09547c4b6d482c55fd6eae3030847f1c4b9ee",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-disconnect.interface.d.ts": {
+        "version": "9a8e992b0199d6b032b6223a87050e3738671f2742794233649706438fe16724",
+        "signature": "9a8e992b0199d6b032b6223a87050e3738671f2742794233649706438fe16724",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-init.interface.d.ts": {
+        "version": "f60ccdb5672ab91d03afc4f24f402e5164a6c818bf15185f5361802523f86df7",
+        "signature": "f60ccdb5672ab91d03afc4f24f402e5164a6c818bf15185f5361802523f86df7",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/interfaces/hooks/index.d.ts": {
+        "version": "931574e125523649902eee2db57c221a1b36417db4f2c4665bf38ce2170ea06e",
+        "signature": "931574e125523649902eee2db57c221a1b36417db4f2c4665bf38ce2170ea06e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/interfaces/socket-events-host.interface.d.ts": {
+        "version": "8507490941583b43ffa5f8becc19d90530e0619b08f0c2e8bc6e71ce75ef1c14",
+        "signature": "8507490941583b43ffa5f8becc19d90530e0619b08f0c2e8bc6e71ce75ef1c14",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/interfaces/web-socket-server.interface.d.ts": {
+        "version": "438b57c680914f2dd27b29789a5d8c169d3abcfb584b68a520e0df5c3ca3cef5",
+        "signature": "438b57c680914f2dd27b29789a5d8c169d3abcfb584b68a520e0df5c3ca3cef5",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/interfaces/ws-response.interface.d.ts": {
+        "version": "510292e419065814acdc81c37a2d801efea1715951600cfbdc1b712f9da10451",
+        "signature": "510292e419065814acdc81c37a2d801efea1715951600cfbdc1b712f9da10451",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/interfaces/index.d.ts": {
+        "version": "552c721b49a127b5ccaa59ee7793c43deb530ef4434b59b801ada4368e6b1395",
+        "signature": "552c721b49a127b5ccaa59ee7793c43deb530ef4434b59b801ada4368e6b1395",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/decorators/socket-gateway.decorator.d.ts": {
+        "version": "af3919f1e15caad054071c209341804d85ab679b78979fdf1b1aac4a73dd634a",
+        "signature": "af3919f1e15caad054071c209341804d85ab679b78979fdf1b1aac4a73dd634a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/decorators/subscribe-message.decorator.d.ts": {
+        "version": "6aa893aa7bbf9ce05b51e9af8a72816fcb5d54ce0959998640da8d0fcfd8b529",
+        "signature": "6aa893aa7bbf9ce05b51e9af8a72816fcb5d54ce0959998640da8d0fcfd8b529",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/decorators/index.d.ts": {
+        "version": "877388f59a044fc4c4689637425d4f8762662b4c6dc86d55864ca8816382b69e",
+        "signature": "877388f59a044fc4c4689637425d4f8762662b4c6dc86d55864ca8816382b69e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/errors/ws-exception.d.ts": {
+        "version": "162ffbed80dad8ce0cf81c330c88dccaae85425fb457a6afcae0110419bdedfb",
+        "signature": "162ffbed80dad8ce0cf81c330c88dccaae85425fb457a6afcae0110419bdedfb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/errors/index.d.ts": {
+        "version": "a85d6e7924c263fdb7a9e28a578401f2f96950ff9fd0e250c76f25de5ce3b9f2",
+        "signature": "a85d6e7924c263fdb7a9e28a578401f2f96950ff9fd0e250c76f25de5ce3b9f2",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/exceptions/base-ws-exception-filter.d.ts": {
+        "version": "8ad06cf401a920fbbea4b0436b80fb92f74bfea9e79312896179d3a6c8e9a3b0",
+        "signature": "8ad06cf401a920fbbea4b0436b80fb92f74bfea9e79312896179d3a6c8e9a3b0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/exceptions/index.d.ts": {
+        "version": "57947d16b34a3811f854965fe668e81ccea9dd6321e412ea1a2c75d4fd2619c1",
+        "signature": "57947d16b34a3811f854965fe668e81ccea9dd6321e412ea1a2c75d4fd2619c1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/interfaces/nest-gateway.interface.d.ts": {
+        "version": "e52c9bb4a4e20ed2ed5cd0aa01d15261949691bffd4d7f5011e79bced9d14e5c",
+        "signature": "e52c9bb4a4e20ed2ed5cd0aa01d15261949691bffd4d7f5011e79bced9d14e5c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/gateway-metadata-explorer.d.ts": {
+        "version": "6c36e6a90dd3e1f5e488c56aede7168ea429589d0095285701b7b56f47262bbd",
+        "signature": "6c36e6a90dd3e1f5e488c56aede7168ea429589d0095285701b7b56f47262bbd",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/websockets/index.d.ts": {
+        "version": "4bc4c7612f5cc6298b01f76f7a21674181ae6e199a0b07c518107c15bde32344",
+        "signature": "4bc4c7612f5cc6298b01f76f7a21674181ae6e199a0b07c518107c15bde32344",
+        "affectsGlobalScope": false
+      },
+      "../src/messages/domain/commands.ts": {
+        "version": "61153fd8b843d5a3e1bb3a19178d99d4286f78837c6bf891d4f26cd45c415770",
+        "signature": "a3fc0a8797694451b8d910113b4b74089c1004255821ed7d72d9d241ccab436f",
+        "affectsGlobalScope": false
+      },
+      "../src/messages/application/messages.service.ts": {
+        "version": "76c7251aac639f11019fb7775c8cfe9d21c27a0d6a54fd0aab5f965d4b43540c",
+        "signature": "7fcf2f144d51b543ff108ae77e8d3ff3fc98516caac8d185ef35700a8a5078bb",
+        "affectsGlobalScope": false
+      },
+      "../src/messages/infrastucture/messages.socket.repository.ts": {
+        "version": "141920d2d238d77e056f0e1d429ef950a9e87df5ba183c447bad8340e08a5a2d",
+        "signature": "f5997fd690d1f90deb43d48782e70f7cc6a2f2371fcd46970003d76e1bc4f772",
+        "affectsGlobalScope": false
+      },
+      "../src/messages/infrastucture/socket-connection.ts": {
+        "version": "84d6da305e48882d03678514a7f568f713f80be3890e75953e0d8c4c3f15cdef",
+        "signature": "d901b3283ccd2d8b918a71cbdd6e41a654c35c8973e82e8554a406b7678ea693",
+        "affectsGlobalScope": false
+      },
+      "../src/shared/config.keys.ts": {
+        "version": "ef379498a78d97648c2f70510cb5f931919d0a5f3781f03458c8cdd9642f4f5e",
+        "signature": "3e5049d2c7543d7edfacf9fb18cb2c7b74384795d95ca2830757186c8d3842ff",
+        "affectsGlobalScope": false
+      },
       "../src/app/app.module.ts": {
-        "version": "82d43115415bca4de67a7e3f57fe9e027175ece50e44569153f842c0b9de7228",
+        "version": "7a0333778f390a82a1cd0fdef6e996e73c44f9a61323dfc61ab4d0a9002b1925",
         "signature": "676e6f44774c614e9f82672ab25717f5cc807e0a914cabd81fb1c0fd9707ba4e",
         "affectsGlobalScope": false
       },
-      "../src/responses/application/response-service.ts": {
-        "version": "4d125baf860416b4f42bc9f5675e706a6486412d97a6bcf6d8f21aea847726a3",
-        "signature": "c6e11b4bfacd394ebc1d2d5a0743c98e5509efb68cbc6ad13c44d044bd68c3ec",
+      "../src/main.ts": {
+        "version": "8ad9609270711fd66c966cf4b009cb34aaa68f380be2d69173471a8222dd4504",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
-      "../src/responses/domain/response.ts": {
-        "version": "37c16805efbedcfec647b0578da00041f23445cc8bb71f7793f0677fe5af8ec7",
-        "signature": "c8c911ff94df41a82e78dff3a6fd9bb5270319332b7bd195123c6a2b49fe3b96",
+      "../src/messages/domain/error-messages.ts": {
+        "version": "94bdadecfd5ebbb94e70fe849a9b634278a19256da0b4cba9cf5997f9acd16ba",
+        "signature": "2a7bd125e852c8531ff7baac65488ba4719c0b527265ba1210815d72d8810e30",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/anymatch/index.d.ts": {
@@ -3521,32 +3511,16 @@
         "../src/messages/domain/message.repository.ts",
         "../src/messages/infrastucture/messages.socket.repository.ts",
         "../src/messages/infrastucture/socket-connection.ts",
+        "../src/shared/config.keys.ts",
         "../src/shared/event-bus/domain/event-bus.ts",
         "../src/shared/event-bus/infrastructure/generic-event-bus.ts"
       ],
       "../src/index.ts": [
-        "../node_modules/@types/node/net.d.ts",
-        "../node_modules/@types/node/path.d.ts",
-        "../src/messages/application/messages.service.ts",
-        "../src/messages/domain/message.repository.ts",
-        "../src/messages/infrastucture/messages.socket.repository.ts",
-        "../src/messages/infrastucture/socket-connection.ts",
-        "../src/responses/infrastucture/frontend-response-handler.ts",
-        "../src/shared/event-bus/domain/event-bus-messages.ts",
-        "../src/shared/event-bus/domain/event-bus.ts",
-        "../src/shared/event-bus/infrastructure/generic-event-bus.ts"
+        "../node_modules/@types/node/path.d.ts"
       ],
       "../src/main.ts": [
-        "../node_modules/@types/node/net.d.ts",
-        "../node_modules/@types/node/path.d.ts",
-        "../src/messages/application/messages.service.ts",
-        "../src/messages/domain/message.repository.ts",
-        "../src/messages/infrastucture/messages.socket.repository.ts",
-        "../src/messages/infrastucture/socket-connection.ts",
-        "../src/responses/infrastucture/frontend-response-handler.ts",
-        "../src/shared/event-bus/domain/event-bus-messages.ts",
-        "../src/shared/event-bus/domain/event-bus.ts",
-        "../src/shared/event-bus/infrastructure/generic-event-bus.ts"
+        "../node_modules/@nestjs/core/index.d.ts",
+        "../src/app/app.module.ts"
       ],
       "../src/messages/application/messages.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -3554,23 +3528,20 @@
         "../src/messages/domain/commands.ts",
         "../src/messages/domain/message.repository.ts",
         "../src/shared/event-bus/domain/event-bus-messages.ts",
+        "../src/shared/event-bus/domain/event-bus.ts",
         "../src/shared/event-bus/domain/receiver.ts"
       ],
       "../src/messages/infrastucture/messages.socket.repository.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/dgram.d.ts",
         "../node_modules/@types/node/net.d.ts",
         "../src/messages/domain/message.repository.ts",
         "../src/shared/event-bus/domain/event-bus-messages.ts",
         "../src/shared/event-bus/domain/event-bus.ts"
       ],
       "../src/messages/infrastucture/socket-connection.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@types/node/net.d.ts"
-      ],
-      "../src/responses/application/response-service.ts": [
-        "../src/shared/event-bus/domain/receiver.ts"
-      ],
-      "../src/responses/infrastucture/frontend-response-handler.ts": [
-        "../src/responses/domain/response-handler.ts"
       ],
       "../src/shared/event-bus/domain/event-bus.ts": [
         "../src/shared/event-bus/domain/receiver.ts"
@@ -4946,6 +4917,7 @@
       "../src/messages/application/messages.service.ts": [
         "../node_modules/@nestjs/websockets/index.d.ts",
         "../src/messages/domain/message.repository.ts",
+        "../src/shared/event-bus/domain/event-bus.ts",
         "../src/shared/event-bus/domain/receiver.ts"
       ],
       "../src/messages/infrastucture/messages.socket.repository.ts": [
@@ -4955,12 +4927,6 @@
       ],
       "../src/messages/infrastucture/socket-connection.ts": [
         "../node_modules/@types/node/net.d.ts"
-      ],
-      "../src/responses/application/response-service.ts": [
-        "../src/shared/event-bus/domain/receiver.ts"
-      ],
-      "../src/responses/infrastucture/frontend-response-handler.ts": [
-        "../src/responses/domain/response-handler.ts"
       ],
       "../src/shared/event-bus/domain/event-bus.ts": [
         "../src/shared/event-bus/domain/receiver.ts"
@@ -5387,13 +5353,11 @@
       "../src/main.ts",
       "../src/messages/application/messages.service.ts",
       "../src/messages/domain/commands.ts",
+      "../src/messages/domain/error-messages.ts",
       "../src/messages/domain/message.repository.ts",
       "../src/messages/infrastucture/messages.socket.repository.ts",
       "../src/messages/infrastucture/socket-connection.ts",
-      "../src/responses/application/response-service.ts",
-      "../src/responses/domain/response-handler.ts",
-      "../src/responses/domain/response.ts",
-      "../src/responses/infrastucture/frontend-response-handler.ts",
+      "../src/shared/config.keys.ts",
       "../src/shared/event-bus/domain/event-bus-messages.ts",
       "../src/shared/event-bus/domain/event-bus.ts",
       "../src/shared/event-bus/domain/receiver.ts",

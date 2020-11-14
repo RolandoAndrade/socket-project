@@ -1,1 +1,0 @@
-{"version":3,"file":"frontend-response-handler.js","sourceRoot":"","sources":["../../../src/responses/infrastucture/frontend-response-handler.ts"],"names":[],"mappings":";;;AAEA,MAAa,uBAAuB;IAChC,KAAK,CAAC,OAAe;QACjB,KAAK,CAAC,OAAO,CAAC,CAAC;IACnB,CAAC;IAED,OAAO,CAAC,OAAe;QACnB,KAAK,CAAC,SAAS,CAAC,CAAC;IACrB,CAAC;CACJ;AARD,0DAQC"}

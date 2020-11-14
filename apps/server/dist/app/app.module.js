@@ -12,6 +12,7 @@ var AppModule_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
+const serve_static_1 = require("@nestjs/serve-static");
 const event_bus_1 = require("../shared/event-bus/domain/event-bus");
 const generic_event_bus_1 = require("../shared/event-bus/infrastructure/generic-event-bus");
 const messages_service_1 = require("../messages/application/messages.service");
@@ -19,8 +20,7 @@ const message_repository_1 = require("../messages/domain/message.repository");
 const messages_socket_repository_1 = require("../messages/infrastucture/messages.socket.repository");
 const socket_connection_1 = require("../messages/infrastucture/socket-connection");
 const net_1 = require("net");
-const HOST = "10.2.126.2";
-const PORT = 19876;
+const config_keys_1 = require("../shared/config.keys");
 let AppModule = AppModule_1 = class AppModule {
     constructor() {
         AppModule_1.port = 3000;
@@ -28,23 +28,30 @@ let AppModule = AppModule_1 = class AppModule {
 };
 AppModule = AppModule_1 = __decorate([
     common_1.Module({
-        imports: [],
+        imports: [
+            serve_static_1.ServeStaticModule.forRoot({
+                rootPath: `public`,
+            }),
+        ],
         controllers: [],
         providers: [
             messages_service_1.MessagesService,
             {
                 provide: event_bus_1.EventBus,
-                useClass: generic_event_bus_1.GenericEventBus
+                useClass: generic_event_bus_1.GenericEventBus,
             },
             {
                 provide: message_repository_1.MessageRepository,
-                useClass: messages_socket_repository_1.MessagesSocketRepository
+                useClass: messages_socket_repository_1.MessagesSocketRepository,
             },
             {
                 provide: net_1.Socket,
-                useFactory: async () => socket_connection_1.openConnection(PORT, HOST)
-            }
-        ]
+                useFactory: async () => {
+                    await socket_connection_1.openConnection(config_keys_1.ConfigKeys.PORT, config_keys_1.ConfigKeys.HOST);
+                    return socket_connection_1.socketInstance;
+                },
+            },
+        ],
     }),
     __metadata("design:paramtypes", [])
 ], AppModule);

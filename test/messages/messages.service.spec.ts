@@ -16,19 +16,37 @@ describe("messages service test", () => {
     beforeAll(async () => {
         socket = await openConnection(19876, "127.0.0.1");
         eventBus = new GenericEventBus();
-        eventBus.publish = jest.fn();
+        eventBus.publish = jest
+            .fn()
+            .mockImplementation((topic: string, subject: string) => console.log("Recibido:", subject));
         repository = new MessagesSocketRepository(socket, eventBus);
-        service = new MessagesService(repository, undefined);
+        service = new MessagesService(repository, eventBus);
     });
 
     it("send hello", async () => {
-        await service.sendHello("usuario_1");
+        await service.sendHello(undefined, "usuario_1");
         await new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve();
             }, 1000);
         });
         expect(eventBus.publish).toHaveBeenCalled();
+    });
+
+    it("give me message", async () => {
+        await service.sendHello(undefined, "usuario_1");
+        await new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve();
+            }, 1000);
+        });
+        await service.getMessage(undefined, "8080");
+        await new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve();
+            }, 1000);
+        });
+        expect(eventBus.publish).toBeCalledTimes(3);
     });
 
     afterAll(async () => {

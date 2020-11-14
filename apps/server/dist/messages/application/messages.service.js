@@ -17,13 +17,16 @@ const common_1 = require("@nestjs/common");
 const websockets_1 = require("@nestjs/websockets");
 const socket_io_1 = require("socket.io");
 const commands_1 = require("../domain/commands");
+const event_bus_1 = require("../../shared/event-bus/domain/event-bus");
 let MessagesService = class MessagesService {
-    constructor(messagesRepository) {
+    constructor(messagesRepository, eventBus) {
         this.messagesRepository = messagesRepository;
+        this.eventBus = eventBus;
         this.logger = new common_1.Logger("MessagesService");
+        this.eventBus.subscribe(event_bus_messages_1.EventBusMessages.MESSAGE_RECEIVED, this);
     }
     async sendHello(client, username) {
-        this.logger.log("Enviando saludo...");
+        this.logger.log("Enviando saludo");
         await this.messagesRepository.sendHello(username);
     }
     async getMessageLength() {
@@ -31,26 +34,27 @@ let MessagesService = class MessagesService {
         await this.messagesRepository.getMessageLength();
     }
     async getMessage(client, udpPort) {
-        this.logger.log("Solicitando mensaje a un puerto UDP del cliente..");
+        this.logger.log(`Obteniendo mensaje desde el puerto ${udpPort}...`);
         const port = parseInt(udpPort);
         await this.messagesRepository.getMessage(port);
     }
     async checksum(client, message) {
-        this.logger.log("Enviando comando para validar el contenido del mensaje...");
+        this.logger.log("Confirmando el mensaje recibido con el servidor...");
         await this.messagesRepository.getMessageLength();
     }
     async sendBye() {
         this.logger.log("Finalizando coneccion...");
-        await this.messagesRepository.getMessageLength();
+        await this.messagesRepository.sendBye();
     }
     receive(topic, subject) {
-        this.logger.log("Se ha recibido una respuesta");
+        this.logger.log(`Se ha recibido una respuesta`);
+        this.logger.debug(subject);
         if (topic === event_bus_messages_1.EventBusMessages.MESSAGE_RECEIVED) {
-            this.server.write(subject);
+            this.server.emit(topic, subject);
         }
     }
     afterInit(server) {
-        this.logger.log('Iniciado');
+        this.logger.log("Iniciado");
     }
     handleDisconnect(client) {
         this.logger.log(`Cliente desconectado: ${client.id}`);
@@ -96,7 +100,7 @@ __decorate([
 MessagesService = __decorate([
     websockets_1.WebSocketGateway(),
     common_1.Injectable(),
-    __metadata("design:paramtypes", [message_repository_1.MessageRepository])
+    __metadata("design:paramtypes", [message_repository_1.MessageRepository, event_bus_1.EventBus])
 ], MessagesService);
 exports.MessagesService = MessagesService;
 //# sourceMappingURL=messages.service.js.map
