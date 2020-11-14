@@ -22,11 +22,11 @@ async function setUp(){
     const responseHandler = new FrontendResponseHandler();
     messageService = new MessagesService(repository, responseHandler);
     eventBus.subscribe(EventBusMessages.MESSAGE_RECEIVED, messageService);
-    await messageService.sendHello("usuario_1");
+    await messageService.sendHello(socket,"aasucasas.17");
 }
 
-setUp();
+setUp();*/
 
-*/
+
 
 import * as path from "path";

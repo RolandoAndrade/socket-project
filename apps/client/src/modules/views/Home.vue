@@ -16,16 +16,16 @@
                   <v-btn  block class="mr-2 white--text" outlined color="green" @click="()=>sendHello()" :disabled="isSigned">HELLO!</v-btn>
                 </v-col>
                 <v-col>
-                  <v-btn  block class="mr-2 white--text" outlined color="orange" :disabled="!isSigned">GET LENGTH</v-btn>
+                  <v-btn  block class="mr-2 white--text" outlined color="orange" :disabled="!isSigned" @click="()=>sendMessageLength()">GET LENGTH</v-btn>
                 </v-col>
                 <v-col>
                   <v-btn  block class="mr-2 white--text" outlined color="purple" :disabled="!isSigned" @click="()=>giveMeMessage()">GET MESSAGE</v-btn>
                 </v-col>
                 <v-col>
-                  <v-btn  block class="mr-2 white--text" outlined color="cyan" :disabled="!isSigned || !quote">CHECKSUM</v-btn>
+                  <v-btn  block class="mr-2 white--text" outlined color="cyan" :disabled="!isSigned|| !quote"  @click="()=>checksum()">CHECKSUM</v-btn>
                 </v-col>
                 <v-col>
-                  <v-btn  block class="mr-2 white--text" outlined color="red" :disabled="!isSigned">BYE</v-btn>
+                  <v-btn  block class="mr-2 white--text" outlined color="red" :disabled="!isSigned" @click="()=>sendBye()">BYE</v-btn>
                 </v-col>
               </v-row>
             </v-card>
@@ -36,7 +36,7 @@
         <v-sheet color="transparent" class="mx-auto"  width="800">
           <div v-for="(msg, k) in messages" :key="k">
             <v-card shaped dark class="blue pa-4 my-2" v-if="msg.isSuccess()">{{msg.getMessage() || msg.getStatus()}}</v-card>
-            <v-card shaped dark class="purple pa-4 my-2" v-else-if="msg.isAMessage()">{{msg.getMessage() || msg.getStatus()}}</v-card>
+            <v-card v-model="uniqueMessage" shaped dark class="purple pa-4 my-2" v-else-if="msg.isAMessage()">{{msg.getMessage() || msg.getStatus()}}</v-card>
             <v-card shaped dark class="error pa-4 my-2" v-else>{{msg.getMessage() || msg.getStatus()}}</v-card>
 
           </div>
@@ -52,8 +52,6 @@
           </v-snackbar>
         </v-overlay>
         <v-snackbar v-model="showMessage" :color="color" top right>{{ message }}</v-snackbar>
-
-
     </v-container>
 </template>
 
@@ -71,6 +69,7 @@ import Socket = SocketIOClient.Socket;
     name: "home",
 })
 export default class Home extends Vue {
+
     private socket!: Socket;
 
     private waitingState: ResponseState = ResponseState.WAITING_FOR_LOGIN;
@@ -135,11 +134,19 @@ export default class Home extends Vue {
     }
 
     sendHello() {
-        this.socket.emit(Commands.SEND_HELLO, this.username);
+      this.socket.emit(Commands.SEND_HELLO, this.username);
     }
-
+    sendMessageLength(){
+      this.socket.emit(Commands.GET_MESSAGE_LENGTH)
+    }      
     giveMeMessage() {
-        this.socket.emit(Commands.GET_MESSAGE, this.udpPort);
+      this.socket.emit(Commands.GET_MESSAGE, this.udpPort);
+    }    
+    checksum(){
+      this.socket.emit(Commands.CHECKSUM, this.quote)
+    }
+    sendBye(){
+      this.socket.emit(Commands.SEND_BYE)
     }
 }
 </script>
