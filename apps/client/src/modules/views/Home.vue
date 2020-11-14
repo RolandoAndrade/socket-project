@@ -1,63 +1,71 @@
 <template>
     <v-container>
           <v-col>
-            <div class="overline text-center font-weight-light">ACCIONES</div>
+            <div class="overline text-center font-weight-light">ACTIONS</div>
             <v-card class="pa-8 mx-auto" outlined width="800">
               <v-row align="center" dense>
                 <v-col cols="8">
                   <v-text-field label="Username" outlined v-model="username" :disabled="isSigned"></v-text-field>
                 </v-col>
                 <v-col cols="4">
-                  <v-text-field label="UDP port" outlined v-model="udpPort" :disabled="!isSigned"></v-text-field>
+                  <v-text-field label="UDP port" outlined v-model="udpPort" :disabled="!isSigned" type="number" min="1025"></v-text-field>
                 </v-col>
               </v-row>
               <v-row dense>
                 <v-col>
-                  <v-btn  block class="mr-2" :outlined="!isSigned" color="orange" dark :disabled="!isSigned">GET LENGTH</v-btn>
+                  <v-btn  block class="mr-2 white--text" outlined color="green" @click="()=>sendHello()" :disabled="isSigned">HELLO!</v-btn>
                 </v-col>
                 <v-col>
-                  <v-btn  block class="mr-2" outlined color="purple" dark :disabled="!isSigned">GET MESSAGE</v-btn>
+                  <v-btn  block class="mr-2 white--text" outlined color="orange" :disabled="!isSigned">GET LENGTH</v-btn>
                 </v-col>
                 <v-col>
-                  <v-btn  block class="mr-2" outlined color="cyan" dark :disabled="!isSigned">CHECKSUM</v-btn>
+                  <v-btn  block class="mr-2 white--text" outlined color="purple" :disabled="!isSigned" @click="()=>giveMeMessage()">GET MESSAGE</v-btn>
                 </v-col>
                 <v-col>
-                  <v-btn  block class="mr-2" :outlined="!isSigned" color="green" dark @click="()=>sendHello()" :disabled="isSigned">HELLO!</v-btn>
-                  <v-btn  block class="mr-2" outlined color="grey" dark :disabled="!isSigned">BYE</v-btn>
+                  <v-btn  block class="mr-2 white--text" outlined color="cyan" :disabled="!isSigned || !quote">CHECKSUM</v-btn>
+                </v-col>
+                <v-col>
+                  <v-btn  block class="mr-2 white--text" outlined color="red" :disabled="!isSigned">BYE</v-btn>
                 </v-col>
               </v-row>
             </v-card>
-
           </v-col>
 
-        <div class="overline text-center font-weight-light mt-6">RESPUESTAS RECIBIDAS</div>
+        <div class="overline text-center font-weight-light mt-6">RECEIVED RESPONSES</div>
 
         <v-sheet color="transparent" class="mx-auto"  width="800">
           <div v-for="(msg, k) in messages" :key="k">
-            <v-card shaped dark class="error pa-4 my-2" v-if="!msg.isSuccess()">{{msg.getMessage() || msg.getStatus()}}</v-card>
-            <v-card shaped dark class="blue pa-4 my-2" v-else>{{msg.getMessage() || msg.getStatus()}}</v-card>
+            <v-card shaped dark class="blue pa-4 my-2" v-if="msg.isSuccess()">{{msg.getMessage() || msg.getStatus()}}</v-card>
+            <v-card shaped dark class="purple pa-4 my-2" v-else-if="msg.isAMessage()">{{msg.getMessage() || msg.getStatus()}}</v-card>
+            <v-card shaped dark class="error pa-4 my-2" v-else>{{msg.getMessage() || msg.getStatus()}}</v-card>
+
           </div>
         </v-sheet>
-        <v-snackbar v-model="showMessage" :color="color" top right>{{ message }}</v-snackbar>
-        <v-snackbar v-model="showQuote" color="purple" centered dark :timeout="10000">
+        <v-overlay v-model="showQuote">
+          <v-snackbar v-model="showQuote" color="purple" centered dark :timeout="10000">
             <v-col class="text-center">
-                <div class="overline">El mensaje recibido es:</div>
-                <div class="quote">
-                    {{ quote }}
-                </div>
+              <div class="overline">Your message is:</div>
+              <div class="quote">
+                {{ quote }}
+              </div>
             </v-col>
-        </v-snackbar>
+          </v-snackbar>
+        </v-overlay>
+        <v-snackbar v-model="showMessage" :color="color" top right>{{ message }}</v-snackbar>
+
+
     </v-container>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { Commands } from "../../../../server/src/messages/domain/commands";
+import {Commands} from "../../../../server/src/messages/domain/commands";
 import io from "socket.io-client";
+import {EventBusMessages} from "../../../../server/src/shared/event-bus/domain/event-bus-messages";
+import {MessageResponse} from "@/modules/responses/domain/response";
+import {ResponseState} from "@/modules/responses/domain/response-state";
 import Socket = SocketIOClient.Socket;
-import { EventBusMessages } from "../../../../server/src/shared/event-bus/domain/event-bus-messages";
-import { MessageResponse } from "@/modules/responses/domain/response";
 
 @Component({
     name: "home",
@@ -65,18 +73,20 @@ import { MessageResponse } from "@/modules/responses/domain/response";
 export default class Home extends Vue {
     private socket!: Socket;
 
+    private waitingState: ResponseState = ResponseState.WAITING_FOR_LOGIN;
+
     private color: string = "";
     private showMessage: boolean = false;
     private message: string = "";
 
-    quote: string = "";
+    quote: string | null = null;
     showQuote: boolean = false;
 
     messages: MessageResponse[] = []
 
     username: string | null = null;
 
-    udpPort: number | null  = null;
+    udpPort: number  = 51234;
 
     isSigned: boolean = false;
 
@@ -104,7 +114,17 @@ export default class Home extends Vue {
     created() {
         this.socket = io("ws://localhost:3000");
         this.socket.on(EventBusMessages.MESSAGE_RECEIVED, (data: string) => {
-            this.showResponse(new MessageResponse(data));
+            const response = new MessageResponse(data);
+            this.showResponse(response);
+            if(response.isSuccess() && this.waitingState === ResponseState.WAITING_FOR_LOGIN){
+              this.waitingState = ResponseState.READY;
+              this.isSigned = true;
+            }
+            else if(response.isSuccess() && this.waitingState === ResponseState.WAITING_FOR_LOGOUT){
+              this.isSigned = false;
+              this.quote = null;
+              this.waitingState = ResponseState.READY;
+            }
         });
         this.socket.on("connect_error", () => {
             this.showResponse(new MessageResponse("error server is not active, check the vpn status"));
@@ -119,7 +139,7 @@ export default class Home extends Vue {
     }
 
     giveMeMessage() {
-        this.socket.emit(Commands.GET_MESSAGE, "51234");
+        this.socket.emit(Commands.GET_MESSAGE, this.udpPort);
     }
 }
 </script>

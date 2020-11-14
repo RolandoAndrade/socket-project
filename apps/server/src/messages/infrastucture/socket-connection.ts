@@ -19,6 +19,13 @@ export async function openConnection(port: number, host: string): Promise<Socket
         logger.log(`Conectado con ${host}:${port}`);
     });
 
+    socketInstance.on("close", () => {
+        logger.log(`Desconectado`);
+        socketInstance.connect(port, host, () => {
+            logger.log(`Conectado con ${host}:${port}`);
+        });
+    });
+
     return new Promise((resolve, reject) => {
         socketInstance.connect(port, host, () => {
             return resolve(socketInstance);

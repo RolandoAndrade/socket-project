@@ -1,0 +1,5 @@
+export enum ResponseState{
+    WAITING_FOR_LOGIN = "WAITING_FOR_LOGIN",
+    WAITING_FOR_LOGOUT = "WAITING_FOR_LOGOUT",
+    READY = "READY"
+}
